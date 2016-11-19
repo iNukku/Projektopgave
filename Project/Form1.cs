@@ -19,10 +19,14 @@ namespace Project
             Dice myDice = new Dice();
             Dice myDice2 = new Dice();
             Dice mydice3 = new Dice();
-            dice_label_1.Text = myDice.Dice_value.ToString();
-            dice_label_2.Text = myDice2.Dice_value.ToString();
-            dice_label_3.Text = mydice3.Dice_value.ToString();
-            dice_label_4.Image = mydice3.getDiceImage(0);
+            Dice myDice4 = new Dice();
+            Dice myDice5 = new Dice();
+
+            dice_label_1.Image = myDice.Get_dice_image();
+            dice_label_2.Image = myDice2.Get_dice_image();
+            dice_label_3.Image = mydice3.Get_dice_image();
+            dice_label_4.Image = myDice4.Get_dice_image();
+            dice_label_5.Image = myDice5.Get_dice_image();
         }
     }
 }

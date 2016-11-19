@@ -9,8 +9,9 @@ namespace Project
 {
     class Dice
     {
-        private static Random rng = new Random();
         public int Dice_value { get; }
+
+        private static readonly Random rng = new Random();
         private Image[] dice_images = new Image[] {
             Properties.Resources.dice_blank,
             Properties.Resources.dice_1,
@@ -26,10 +27,9 @@ namespace Project
         }
 
         //returnerer et image med repræsentation af Dice_value
-        public Image getDiceImage(int value)
+        public Image Get_dice_image()
         {
-            //TBD
-            return dice_images[0];
+            return dice_images[Dice_value];
         }
     }
 }
