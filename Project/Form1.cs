@@ -22,6 +22,7 @@ namespace Project
             dice_label_1.Text = myDice.Dice_value.ToString();
             dice_label_2.Text = myDice2.Dice_value.ToString();
             dice_label_3.Text = mydice3.Dice_value.ToString();
+            dice_label_4.Image = mydice3.getDiceImage(0);
         }
     }
 }

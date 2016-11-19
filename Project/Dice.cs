@@ -24,5 +24,12 @@ namespace Project
         {
             Dice_value = rng.Next(1, 7);
         }
+
+        //returnerer et image med repræsentation af Dice_value
+        public Image getDiceImage(int value)
+        {
+            //TBD
+            return dice_images[0];
+        }
     }
 }
