@@ -57,6 +57,21 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.the_same_button = new System.Windows.Forms.RadioButton();
+            this.ones_button = new System.Windows.Forms.RadioButton();
+            this.twos_button = new System.Windows.Forms.RadioButton();
+            this.threes_button = new System.Windows.Forms.RadioButton();
+            this.fours_button = new System.Windows.Forms.RadioButton();
+            this.fives_button = new System.Windows.Forms.RadioButton();
+            this.sixes_button = new System.Windows.Forms.RadioButton();
+            this.onepair_button = new System.Windows.Forms.RadioButton();
+            this.twopairs_button = new System.Windows.Forms.RadioButton();
+            this.four_same_button = new System.Windows.Forms.RadioButton();
+            this.full_house_button = new System.Windows.Forms.RadioButton();
+            this.small_str_button = new System.Windows.Forms.RadioButton();
+            this.large_str_button = new System.Windows.Forms.RadioButton();
+            this.chance_button = new System.Windows.Forms.RadioButton();
+            this.yatzy_button = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // dice_label_1
@@ -320,11 +335,206 @@
             this.label19.TabIndex = 28;
             this.label19.Text = "TOTAL";
             // 
+            // the_same_button
+            // 
+            this.the_same_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.the_same_button.Location = new System.Drawing.Point(180, 580);
+            this.the_same_button.Name = "the_same_button";
+            this.the_same_button.Size = new System.Drawing.Size(60, 30);
+            this.the_same_button.TabIndex = 29;
+            this.the_same_button.TabStop = true;
+            this.the_same_button.Text = "0";
+            this.the_same_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.the_same_button.UseVisualStyleBackColor = true;
+            // 
+            // ones_button
+            // 
+            this.ones_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.ones_button.Location = new System.Drawing.Point(180, 220);
+            this.ones_button.Name = "ones_button";
+            this.ones_button.Size = new System.Drawing.Size(60, 30);
+            this.ones_button.TabIndex = 30;
+            this.ones_button.TabStop = true;
+            this.ones_button.Text = "0";
+            this.ones_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ones_button.UseVisualStyleBackColor = true;
+            // 
+            // twos_button
+            // 
+            this.twos_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.twos_button.Location = new System.Drawing.Point(180, 260);
+            this.twos_button.Name = "twos_button";
+            this.twos_button.Size = new System.Drawing.Size(60, 30);
+            this.twos_button.TabIndex = 31;
+            this.twos_button.TabStop = true;
+            this.twos_button.Text = "0";
+            this.twos_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.twos_button.UseVisualStyleBackColor = true;
+            // 
+            // threes_button
+            // 
+            this.threes_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.threes_button.Location = new System.Drawing.Point(180, 300);
+            this.threes_button.Name = "threes_button";
+            this.threes_button.Size = new System.Drawing.Size(60, 30);
+            this.threes_button.TabIndex = 32;
+            this.threes_button.TabStop = true;
+            this.threes_button.Text = "0";
+            this.threes_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.threes_button.UseVisualStyleBackColor = true;
+            // 
+            // fours_button
+            // 
+            this.fours_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.fours_button.Location = new System.Drawing.Point(180, 340);
+            this.fours_button.Name = "fours_button";
+            this.fours_button.Size = new System.Drawing.Size(60, 30);
+            this.fours_button.TabIndex = 33;
+            this.fours_button.TabStop = true;
+            this.fours_button.Text = "0";
+            this.fours_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fours_button.UseVisualStyleBackColor = true;
+            // 
+            // fives_button
+            // 
+            this.fives_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.fives_button.Location = new System.Drawing.Point(180, 380);
+            this.fives_button.Name = "fives_button";
+            this.fives_button.Size = new System.Drawing.Size(60, 30);
+            this.fives_button.TabIndex = 34;
+            this.fives_button.TabStop = true;
+            this.fives_button.Text = "0";
+            this.fives_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.fives_button.UseVisualStyleBackColor = true;
+            // 
+            // sixes_button
+            // 
+            this.sixes_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.sixes_button.Location = new System.Drawing.Point(180, 420);
+            this.sixes_button.Name = "sixes_button";
+            this.sixes_button.Size = new System.Drawing.Size(60, 30);
+            this.sixes_button.TabIndex = 35;
+            this.sixes_button.TabStop = true;
+            this.sixes_button.Text = "0";
+            this.sixes_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.sixes_button.UseVisualStyleBackColor = true;
+            // 
+            // onepair_button
+            // 
+            this.onepair_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.onepair_button.Location = new System.Drawing.Point(180, 500);
+            this.onepair_button.Name = "onepair_button";
+            this.onepair_button.Size = new System.Drawing.Size(60, 30);
+            this.onepair_button.TabIndex = 36;
+            this.onepair_button.TabStop = true;
+            this.onepair_button.Text = "0";
+            this.onepair_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.onepair_button.UseVisualStyleBackColor = true;
+            // 
+            // twopairs_button
+            // 
+            this.twopairs_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.twopairs_button.Location = new System.Drawing.Point(180, 540);
+            this.twopairs_button.Name = "twopairs_button";
+            this.twopairs_button.Size = new System.Drawing.Size(60, 30);
+            this.twopairs_button.TabIndex = 37;
+            this.twopairs_button.TabStop = true;
+            this.twopairs_button.Text = "0";
+            this.twopairs_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.twopairs_button.UseVisualStyleBackColor = true;
+            // 
+            // four_same_button
+            // 
+            this.four_same_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.four_same_button.Location = new System.Drawing.Point(180, 620);
+            this.four_same_button.Name = "four_same_button";
+            this.four_same_button.Size = new System.Drawing.Size(60, 30);
+            this.four_same_button.TabIndex = 38;
+            this.four_same_button.TabStop = true;
+            this.four_same_button.Text = "0";
+            this.four_same_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.four_same_button.UseVisualStyleBackColor = true;
+            // 
+            // full_house_button
+            // 
+            this.full_house_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.full_house_button.Location = new System.Drawing.Point(180, 660);
+            this.full_house_button.Name = "full_house_button";
+            this.full_house_button.Size = new System.Drawing.Size(60, 30);
+            this.full_house_button.TabIndex = 39;
+            this.full_house_button.TabStop = true;
+            this.full_house_button.Text = "0";
+            this.full_house_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.full_house_button.UseVisualStyleBackColor = true;
+            // 
+            // small_str_button
+            // 
+            this.small_str_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.small_str_button.Location = new System.Drawing.Point(180, 700);
+            this.small_str_button.Name = "small_str_button";
+            this.small_str_button.Size = new System.Drawing.Size(60, 30);
+            this.small_str_button.TabIndex = 40;
+            this.small_str_button.TabStop = true;
+            this.small_str_button.Text = "0";
+            this.small_str_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.small_str_button.UseVisualStyleBackColor = true;
+            // 
+            // large_str_button
+            // 
+            this.large_str_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.large_str_button.Location = new System.Drawing.Point(180, 740);
+            this.large_str_button.Name = "large_str_button";
+            this.large_str_button.Size = new System.Drawing.Size(60, 30);
+            this.large_str_button.TabIndex = 41;
+            this.large_str_button.TabStop = true;
+            this.large_str_button.Text = "0";
+            this.large_str_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.large_str_button.UseVisualStyleBackColor = true;
+            // 
+            // chance_button
+            // 
+            this.chance_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chance_button.Location = new System.Drawing.Point(180, 780);
+            this.chance_button.Name = "chance_button";
+            this.chance_button.Size = new System.Drawing.Size(60, 30);
+            this.chance_button.TabIndex = 42;
+            this.chance_button.TabStop = true;
+            this.chance_button.Text = "0";
+            this.chance_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chance_button.UseVisualStyleBackColor = true;
+            // 
+            // yatzy_button
+            // 
+            this.yatzy_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.yatzy_button.Location = new System.Drawing.Point(180, 820);
+            this.yatzy_button.Name = "yatzy_button";
+            this.yatzy_button.Size = new System.Drawing.Size(60, 30);
+            this.yatzy_button.TabIndex = 43;
+            this.yatzy_button.TabStop = true;
+            this.yatzy_button.Text = "0";
+            this.yatzy_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.yatzy_button.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 894);
+            this.Controls.Add(this.yatzy_button);
+            this.Controls.Add(this.chance_button);
+            this.Controls.Add(this.large_str_button);
+            this.Controls.Add(this.small_str_button);
+            this.Controls.Add(this.full_house_button);
+            this.Controls.Add(this.four_same_button);
+            this.Controls.Add(this.twopairs_button);
+            this.Controls.Add(this.onepair_button);
+            this.Controls.Add(this.sixes_button);
+            this.Controls.Add(this.fives_button);
+            this.Controls.Add(this.fours_button);
+            this.Controls.Add(this.threes_button);
+            this.Controls.Add(this.twos_button);
+            this.Controls.Add(this.ones_button);
+            this.Controls.Add(this.the_same_button);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -392,6 +602,21 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.RadioButton the_same_button;
+        private System.Windows.Forms.RadioButton ones_button;
+        private System.Windows.Forms.RadioButton twos_button;
+        private System.Windows.Forms.RadioButton threes_button;
+        private System.Windows.Forms.RadioButton fours_button;
+        private System.Windows.Forms.RadioButton fives_button;
+        private System.Windows.Forms.RadioButton sixes_button;
+        private System.Windows.Forms.RadioButton onepair_button;
+        private System.Windows.Forms.RadioButton twopairs_button;
+        private System.Windows.Forms.RadioButton four_same_button;
+        private System.Windows.Forms.RadioButton full_house_button;
+        private System.Windows.Forms.RadioButton small_str_button;
+        private System.Windows.Forms.RadioButton large_str_button;
+        private System.Windows.Forms.RadioButton chance_button;
+        private System.Windows.Forms.RadioButton yatzy_button;
     }
 }
 
