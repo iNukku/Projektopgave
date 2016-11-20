@@ -12,7 +12,7 @@ namespace Project
         public int Dice_value { get; }
 
         private static readonly Random rng = new Random();
-        private Image[] dice_images = new Image[] {
+        private Image[] dice_images = new Image[7] {
             Properties.Resources.dice_blank,
             Properties.Resources.dice_1,
             Properties.Resources.dice_2,
@@ -29,7 +29,14 @@ namespace Project
         //returnerer et image med repræsentation af Dice_value
         public Image Get_dice_image()
         {
-            return dice_images[Dice_value];
+            if (dice_images[Dice_value] != null)
+            {
+                return dice_images[Dice_value];
+            }
+            else
+            {
+                throw new Exception("Picture files can not be found");
+            }
         }
     }
 }

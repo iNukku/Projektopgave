@@ -72,6 +72,7 @@
             this.large_str_button = new System.Windows.Forms.RadioButton();
             this.chance_button = new System.Windows.Forms.RadioButton();
             this.yatzy_button = new System.Windows.Forms.RadioButton();
+            this.roll_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dice_label_1
@@ -515,11 +516,22 @@
             this.yatzy_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.yatzy_button.UseVisualStyleBackColor = true;
             // 
+            // roll_button
+            // 
+            this.roll_button.Location = new System.Drawing.Point(420, 180);
+            this.roll_button.Name = "roll_button";
+            this.roll_button.Size = new System.Drawing.Size(175, 100);
+            this.roll_button.TabIndex = 44;
+            this.roll_button.Text = "button1";
+            this.roll_button.UseVisualStyleBackColor = true;
+            this.roll_button.Click += new System.EventHandler(this.roll_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 894);
+            this.Controls.Add(this.roll_button);
             this.Controls.Add(this.yatzy_button);
             this.Controls.Add(this.chance_button);
             this.Controls.Add(this.large_str_button);
@@ -617,6 +629,7 @@
         private System.Windows.Forms.RadioButton large_str_button;
         private System.Windows.Forms.RadioButton chance_button;
         private System.Windows.Forms.RadioButton yatzy_button;
+        private System.Windows.Forms.Button roll_button;
     }
 }
 
