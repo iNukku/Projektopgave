@@ -9,9 +9,26 @@ namespace Project
 {
     class Dice
     {
-        public int Dice_value { get; }
+        public int Dice_value { get; set; }
 
-        private static readonly Random rng = new Random();
+        private bool diceIsRolled;
+        private bool diceIsLocked;
+
+        public bool DiceIsLocked
+        {
+            get { return diceIsLocked = ; }
+            set { diceIsLocked =  = value; }
+        }
+
+
+        public bool DiceIsRolled
+        {
+            get { return diceIsRolled; }
+            set { diceIsRolled = value; }
+        }
+
+
+        private static Random rng = new Random();
         private Image[] dice_images = new Image[7] {
             Properties.Resources.dice_blank,
             Properties.Resources.dice_1,
@@ -21,22 +38,11 @@ namespace Project
             Properties.Resources.dice_5,
             Properties.Resources.dice_6 };
 
-        public Dice()
+        //returnerer et image med repræsentation af Dice_value
+        public Image RollDice()
         {
             Dice_value = rng.Next(1, 7);
-        }
-
-        //returnerer et image med repræsentation af Dice_value
-        public Image Get_dice_image()
-        {
-            if (dice_images[Dice_value] != null)
-            {
-                return dice_images[Dice_value];
-            }
-            else
-            {
-                throw new Exception("Picture files can not be found");
-            }
+            return dice_images[Dice_value];
         }
     }
 }

@@ -8,5 +8,11 @@ namespace Project
 {
     class Player
     {
+        private Scorecard scorecard;
+
+        public Player(Scorecard scorecard)
+        {
+            this.scorecard = scorecard;
+        }
     }
 }
