@@ -13,29 +13,21 @@ namespace Project
 {
     public partial class Form1 : Form
     {
-        public Form1(Game c)
+        CupOfDice cup = new CupOfDice();
+        
+        public Form1()
         {
             InitializeComponent();
         }
-
+        
         private void roll_button_Click(object sender, EventArgs e)
-        {
-            rollbutton();
+        {     
+            dice_label_1.Image = cup.diceArray[0].RollDice();
+            dice_label_2.Image = cup.diceArray[1].RollDice();
+            dice_label_3.Image = cup.diceArray[2].RollDice();
+            dice_label_4.Image = cup.diceArray[3].RollDice();
+            dice_label_5.Image = cup.diceArray[4].RollDice();
         }
 
-        private void rollbutton()
-        {
-           /* Dice myDice = new Dice();
-            Dice myDice2 = new Dice();
-            Dice mydice3 = new Dice();
-            Dice myDice4 = new Dice();
-            Dice myDice5 = new Dice();
-
-            dice_label_1.Image = myDice.Get_dice_image();
-            dice_label_2.Image = myDice2.Get_dice_image();
-            dice_label_3.Image = mydice3.Get_dice_image();
-            dice_label_4.Image = myDice4.Get_dice_image();
-            dice_label_5.Image = myDice5.Get_dice_image();*/
-        }
     }
 }
