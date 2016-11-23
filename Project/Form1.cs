@@ -14,20 +14,24 @@ namespace Project
     public partial class Form1 : Form
     {
         CupOfDice cup = new CupOfDice();
+        private Label[] diceLabels;
         
         public Form1()
         {
             InitializeComponent();
+            diceLabels = new Label[]
+            {
+                dice_label_1, dice_label_2, dice_label_3, dice_label_4, dice_label_5
+            };
+
         }
         
         private void roll_button_Click(object sender, EventArgs e)
-        {     
-            dice_label_1.Image = cup.diceArray[0].RollDice();
-            dice_label_2.Image = cup.diceArray[1].RollDice();
-            dice_label_3.Image = cup.diceArray[2].RollDice();
-            dice_label_4.Image = cup.diceArray[3].RollDice();
-            dice_label_5.Image = cup.diceArray[4].RollDice();
+        {
+            for (int i = 0; i < diceLabels.Length; i++)
+            {
+                diceLabels[i].Image = cup.diceArray[i].RollDice(); // skal flyttes til anden klasse (game)
+            }
         }
-
     }
 }
