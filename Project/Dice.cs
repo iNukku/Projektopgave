@@ -7,11 +7,11 @@ using System.Drawing;
 
 namespace Project
 {
-    public class Dice
-    {
-        public int DiceValue { get; set; }
+    class Dice
+    {       
+        private int diceValue;
+        private Image diceImage;
         private static Random rng = new Random();
-        private bool diceIsRolled;
         private bool diceIsLocked;
         private Image[] diceImages = new Image[7] {
             Properties.Resources.dice_blank,
@@ -22,27 +22,30 @@ namespace Project
             Properties.Resources.dice_5,
             Properties.Resources.dice_6 };
 
+        public int DiceValue
+        {
+            get { return diceValue; }
+        }
+
+        public Image DiceImage
+        {
+            get { return diceImage; }
+        }
+
         public bool DiceIsLocked
         {
             get { return diceIsLocked; }
             set { diceIsLocked = value; }
         }
 
-        public bool DiceIsRolled
-        {
-            get { return diceIsRolled; }
-            set { diceIsRolled = value; }
-        }
-
-        //setter terningens værdi og returnerer et image svarende til værdien
-        public Image RollDice()
+        //setter terningens værdi og vælger terningens billede
+        public void RollDice()
         {
             if (DiceIsLocked == false)
             {
-                DiceValue = rng.Next(1, 7);
-                diceIsRolled = true;
+                diceValue = rng.Next(1, 7);
             }
-            return diceImages[DiceValue];
+            diceImage = diceImages[DiceValue];
         }
     }
 }

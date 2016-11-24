@@ -8,7 +8,7 @@ namespace Project
 {
     class CupOfDice
     {
-        private const int AMOUNT_OF_DICE = 5;
+        private const int AMOUNT_OF_DICE = Rulebook.AMOUNT_OF_DICE;
         public Dice[] diceArray = new Dice[AMOUNT_OF_DICE];
 
         public CupOfDice()
