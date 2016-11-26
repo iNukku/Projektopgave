@@ -57,7 +57,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.the_same_button = new System.Windows.Forms.RadioButton();
+            this.three_same_button = new System.Windows.Forms.RadioButton();
             this.ones_button = new System.Windows.Forms.RadioButton();
             this.twos_button = new System.Windows.Forms.RadioButton();
             this.threes_button = new System.Windows.Forms.RadioButton();
@@ -124,7 +124,7 @@
             // 
             this.checkbox_dice_1.AutoSize = true;
             this.checkbox_dice_1.Location = new System.Drawing.Point(40, 81);
-            this.checkbox_dice_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkbox_dice_1.Margin = new System.Windows.Forms.Padding(2);
             this.checkbox_dice_1.Name = "checkbox_dice_1";
             this.checkbox_dice_1.Size = new System.Drawing.Size(48, 17);
             this.checkbox_dice_1.TabIndex = 5;
@@ -135,7 +135,7 @@
             // 
             this.checkBox_dice_2.AutoSize = true;
             this.checkBox_dice_2.Location = new System.Drawing.Point(120, 81);
-            this.checkBox_dice_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_dice_2.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_dice_2.Name = "checkBox_dice_2";
             this.checkBox_dice_2.Size = new System.Drawing.Size(48, 17);
             this.checkBox_dice_2.TabIndex = 6;
@@ -146,7 +146,7 @@
             // 
             this.checkBox_dice_3.AutoSize = true;
             this.checkBox_dice_3.Location = new System.Drawing.Point(200, 81);
-            this.checkBox_dice_3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_dice_3.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_dice_3.Name = "checkBox_dice_3";
             this.checkBox_dice_3.Size = new System.Drawing.Size(48, 17);
             this.checkBox_dice_3.TabIndex = 7;
@@ -157,7 +157,7 @@
             // 
             this.checkBox3_dice_4.AutoSize = true;
             this.checkBox3_dice_4.Location = new System.Drawing.Point(280, 81);
-            this.checkBox3_dice_4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox3_dice_4.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox3_dice_4.Name = "checkBox3_dice_4";
             this.checkBox3_dice_4.Size = new System.Drawing.Size(48, 17);
             this.checkBox3_dice_4.TabIndex = 8;
@@ -168,7 +168,7 @@
             // 
             this.checkBox_dice_5.AutoSize = true;
             this.checkBox_dice_5.Location = new System.Drawing.Point(360, 81);
-            this.checkBox_dice_5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_dice_5.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_dice_5.Name = "checkBox_dice_5";
             this.checkBox_dice_5.Size = new System.Drawing.Size(48, 17);
             this.checkBox_dice_5.TabIndex = 9;
@@ -365,24 +365,24 @@
             this.label19.TabIndex = 28;
             this.label19.Text = "TOTAL";
             // 
-            // the_same_button
+            // three_same_button
             // 
-            this.the_same_button.Appearance = System.Windows.Forms.Appearance.Button;
-            this.the_same_button.Location = new System.Drawing.Point(120, 377);
-            this.the_same_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.the_same_button.Name = "the_same_button";
-            this.the_same_button.Size = new System.Drawing.Size(40, 19);
-            this.the_same_button.TabIndex = 29;
-            this.the_same_button.TabStop = true;
-            this.the_same_button.Text = "0";
-            this.the_same_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.the_same_button.UseVisualStyleBackColor = true;
+            this.three_same_button.Appearance = System.Windows.Forms.Appearance.Button;
+            this.three_same_button.Location = new System.Drawing.Point(120, 377);
+            this.three_same_button.Margin = new System.Windows.Forms.Padding(2);
+            this.three_same_button.Name = "three_same_button";
+            this.three_same_button.Size = new System.Drawing.Size(40, 19);
+            this.three_same_button.TabIndex = 29;
+            this.three_same_button.TabStop = true;
+            this.three_same_button.Text = "0";
+            this.three_same_button.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.three_same_button.UseVisualStyleBackColor = true;
             // 
             // ones_button
             // 
             this.ones_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.ones_button.Location = new System.Drawing.Point(120, 143);
-            this.ones_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ones_button.Margin = new System.Windows.Forms.Padding(2);
             this.ones_button.Name = "ones_button";
             this.ones_button.Size = new System.Drawing.Size(40, 19);
             this.ones_button.TabIndex = 30;
@@ -395,7 +395,7 @@
             // 
             this.twos_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.twos_button.Location = new System.Drawing.Point(120, 169);
-            this.twos_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.twos_button.Margin = new System.Windows.Forms.Padding(2);
             this.twos_button.Name = "twos_button";
             this.twos_button.Size = new System.Drawing.Size(40, 19);
             this.twos_button.TabIndex = 31;
@@ -408,7 +408,7 @@
             // 
             this.threes_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.threes_button.Location = new System.Drawing.Point(120, 195);
-            this.threes_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.threes_button.Margin = new System.Windows.Forms.Padding(2);
             this.threes_button.Name = "threes_button";
             this.threes_button.Size = new System.Drawing.Size(40, 19);
             this.threes_button.TabIndex = 32;
@@ -421,7 +421,7 @@
             // 
             this.fours_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.fours_button.Location = new System.Drawing.Point(120, 221);
-            this.fours_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fours_button.Margin = new System.Windows.Forms.Padding(2);
             this.fours_button.Name = "fours_button";
             this.fours_button.Size = new System.Drawing.Size(40, 19);
             this.fours_button.TabIndex = 33;
@@ -434,7 +434,7 @@
             // 
             this.fives_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.fives_button.Location = new System.Drawing.Point(120, 247);
-            this.fives_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fives_button.Margin = new System.Windows.Forms.Padding(2);
             this.fives_button.Name = "fives_button";
             this.fives_button.Size = new System.Drawing.Size(40, 19);
             this.fives_button.TabIndex = 34;
@@ -447,7 +447,7 @@
             // 
             this.sixes_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.sixes_button.Location = new System.Drawing.Point(120, 273);
-            this.sixes_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sixes_button.Margin = new System.Windows.Forms.Padding(2);
             this.sixes_button.Name = "sixes_button";
             this.sixes_button.Size = new System.Drawing.Size(40, 19);
             this.sixes_button.TabIndex = 35;
@@ -460,7 +460,7 @@
             // 
             this.onepair_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.onepair_button.Location = new System.Drawing.Point(120, 325);
-            this.onepair_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.onepair_button.Margin = new System.Windows.Forms.Padding(2);
             this.onepair_button.Name = "onepair_button";
             this.onepair_button.Size = new System.Drawing.Size(40, 19);
             this.onepair_button.TabIndex = 36;
@@ -473,7 +473,7 @@
             // 
             this.twopairs_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.twopairs_button.Location = new System.Drawing.Point(120, 351);
-            this.twopairs_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.twopairs_button.Margin = new System.Windows.Forms.Padding(2);
             this.twopairs_button.Name = "twopairs_button";
             this.twopairs_button.Size = new System.Drawing.Size(40, 19);
             this.twopairs_button.TabIndex = 37;
@@ -486,7 +486,7 @@
             // 
             this.four_same_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.four_same_button.Location = new System.Drawing.Point(120, 403);
-            this.four_same_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.four_same_button.Margin = new System.Windows.Forms.Padding(2);
             this.four_same_button.Name = "four_same_button";
             this.four_same_button.Size = new System.Drawing.Size(40, 19);
             this.four_same_button.TabIndex = 38;
@@ -499,7 +499,7 @@
             // 
             this.full_house_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.full_house_button.Location = new System.Drawing.Point(120, 429);
-            this.full_house_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.full_house_button.Margin = new System.Windows.Forms.Padding(2);
             this.full_house_button.Name = "full_house_button";
             this.full_house_button.Size = new System.Drawing.Size(40, 19);
             this.full_house_button.TabIndex = 39;
@@ -512,7 +512,7 @@
             // 
             this.small_str_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.small_str_button.Location = new System.Drawing.Point(120, 455);
-            this.small_str_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.small_str_button.Margin = new System.Windows.Forms.Padding(2);
             this.small_str_button.Name = "small_str_button";
             this.small_str_button.Size = new System.Drawing.Size(40, 19);
             this.small_str_button.TabIndex = 40;
@@ -525,7 +525,7 @@
             // 
             this.large_str_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.large_str_button.Location = new System.Drawing.Point(120, 481);
-            this.large_str_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.large_str_button.Margin = new System.Windows.Forms.Padding(2);
             this.large_str_button.Name = "large_str_button";
             this.large_str_button.Size = new System.Drawing.Size(40, 19);
             this.large_str_button.TabIndex = 41;
@@ -538,7 +538,7 @@
             // 
             this.chance_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.chance_button.Location = new System.Drawing.Point(120, 507);
-            this.chance_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chance_button.Margin = new System.Windows.Forms.Padding(2);
             this.chance_button.Name = "chance_button";
             this.chance_button.Size = new System.Drawing.Size(40, 19);
             this.chance_button.TabIndex = 42;
@@ -551,7 +551,7 @@
             // 
             this.yatzy_button.Appearance = System.Windows.Forms.Appearance.Button;
             this.yatzy_button.Location = new System.Drawing.Point(120, 533);
-            this.yatzy_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.yatzy_button.Margin = new System.Windows.Forms.Padding(2);
             this.yatzy_button.Name = "yatzy_button";
             this.yatzy_button.Size = new System.Drawing.Size(40, 19);
             this.yatzy_button.TabIndex = 43;
@@ -564,7 +564,7 @@
             // 
             this.roll_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roll_button.Location = new System.Drawing.Point(280, 117);
-            this.roll_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.roll_button.Margin = new System.Windows.Forms.Padding(2);
             this.roll_button.Name = "roll_button";
             this.roll_button.Size = new System.Drawing.Size(117, 65);
             this.roll_button.TabIndex = 44;
@@ -592,7 +592,7 @@
             this.Controls.Add(this.threes_button);
             this.Controls.Add(this.twos_button);
             this.Controls.Add(this.ones_button);
-            this.Controls.Add(this.the_same_button);
+            this.Controls.Add(this.three_same_button);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
@@ -622,7 +622,7 @@
             this.Controls.Add(this.dice_label_3);
             this.Controls.Add(this.dice_label_2);
             this.Controls.Add(this.dice_label_1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -661,7 +661,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.RadioButton the_same_button;
+        private System.Windows.Forms.RadioButton three_same_button;
         private System.Windows.Forms.RadioButton ones_button;
         private System.Windows.Forms.RadioButton twos_button;
         private System.Windows.Forms.RadioButton threes_button;

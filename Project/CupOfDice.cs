@@ -6,26 +6,30 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class CupOfDice
+    public class CupOfDice
     {
-        private const int AMOUNT_OF_DICE = Rulebook.AMOUNT_OF_DICE;
-        public Dice[] diceArray = new Dice[AMOUNT_OF_DICE];
+        #region fields and properties
+        public Dice[] diceArray = new Dice[Rulebook.AMOUNT_OF_DICE];
+        #endregion
 
-        public CupOfDice()
+        #region Constructors
+        public CupOfDice(int numberOfDice)
         {
-            for (int i = 0; i < AMOUNT_OF_DICE; i++)
+            for (int i = 0; i < numberOfDice; i++)
             {
                 diceArray[i] = new Dice();
             }
         }
+        #endregion
 
+        #region methods
         public void Shuffle()
         {
             foreach (Dice dice in diceArray)
             {
-                    dice.RollDice(); //images hører ikke til dice klasse! skal ligge i forms
+                dice.RollDice(); //images hører ikke til dice klasse! skal ligge i forms
             }
         }
-
+        #endregion
     }
 }

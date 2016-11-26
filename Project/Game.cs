@@ -8,8 +8,43 @@ namespace Project
 {
     public class Game
     {
-        private int[] diveValue = new int[5];
+        #region fields and properties
+        private CupOfDice cup;
+        public int RoundNumber { get; private set; }
+        #endregion
 
+        #region Constructors
+        public Game()
+        {
+            cup = new CupOfDice(Rulebook.AMOUNT_OF_DICE);
+            RoundNumber = 1;
+        }
+        #endregion
+
+        #region methods
+        public void StartNewRound()
+        {
+            if (RoundNumber != 3)
+            {
+                cup.Shuffle();
+            }
+        }
+
+        public void RoundEnded()
+        {
+
+        }
+
+        public int[] ReturnDiceValues()
+        {
+            int[] values = new int[Rulebook.AMOUNT_OF_DICE];
+            for (int i = 0; i < values.Length; i++)
+            {
+                values[i] = cup.diceArray[i].DiceValue;
+            }
+            return values;
+        }
+        #endregion
 
     }
 }
