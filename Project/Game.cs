@@ -11,13 +11,14 @@ namespace Project
         #region fields and properties
         private CupOfDice cup;
         public int RoundNumber { get; private set; }
+        private int[] diceValues = new int[Rulebook.AMOUNT_OF_DICE]; // game skal vide fra rulebook hvor mange terninger, det beder bægeret om
         #endregion
 
         #region Constructors
         public Game()
         {
             cup = new CupOfDice(Rulebook.AMOUNT_OF_DICE);
-            RoundNumber = 1;
+            RoundNumber = 0;
         }
         #endregion
 
@@ -27,23 +28,28 @@ namespace Project
             if (RoundNumber != 3)
             {
                 cup.Shuffle();
+                RoundNumber++;       
             }
         }
 
-        public void RoundEnded()
+        public void EndRound()
         {
 
         }
 
         public int[] ReturnDiceValues()
         {
-            int[] values = new int[Rulebook.AMOUNT_OF_DICE];
-            for (int i = 0; i < values.Length; i++)
+            for (int i = 0; i < diceValues.Length; i++)
             {
-                values[i] = cup.diceArray[i].DiceValue;
+                diceValues[i] = cup.DiceArray[i].DiceValue;
             }
-            return values;
+            return diceValues;
         }
+
+        //public int[] ReturnSinglesValues()
+        //{
+
+        //}
         #endregion
 
     }

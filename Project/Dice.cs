@@ -23,12 +23,12 @@ namespace Project
         #endregion
 
         #region methods
-        //setter terningens værdi og vælger terningens billede
+        //setter terningens værdi 
         public void RollDice()
         {
             if (DiceIsLocked == false)
             {
-                DiceValue = rng.Next(1, 7);
+                DiceValue = rng.Next(1, Rulebook.MAX_DICE_VALUE + 1);
             }
         }
         #endregion

@@ -8,5 +8,19 @@ namespace Project
 {
     public class Scorecard
     {
+        #region fields and properties
+        #endregion
+
+        #region constructor
+        #endregion
+
+        #region methods
+        //Kan måske overloades ?
+        public bool CombinationIsLocked()
+        {
+            //TBD
+            return false;
+        }
+        #endregion
     }
 }

@@ -9,15 +9,17 @@ namespace Project
     public class CupOfDice
     {
         #region fields and properties
-        public Dice[] diceArray = new Dice[Rulebook.AMOUNT_OF_DICE];
+        public Dice[] DiceArray;
+        // gør private ?
         #endregion
 
         #region Constructors
-        public CupOfDice(int numberOfDice)
+        public CupOfDice(int value)
         {
-            for (int i = 0; i < numberOfDice; i++)
+            DiceArray = new Dice[value];
+            for (int i = 0; i < DiceArray.Length; i++)
             {
-                diceArray[i] = new Dice();
+                DiceArray[i] = new Dice();
             }
         }
         #endregion
@@ -25,10 +27,23 @@ namespace Project
         #region methods
         public void Shuffle()
         {
-            foreach (Dice dice in diceArray)
+            foreach (Dice dice in DiceArray)
             {
-                dice.RollDice(); //images hører ikke til dice klasse! skal ligge i forms
+                dice.RollDice(); 
             }
+        }
+
+        public int OccurencesOfDiceValue(int value)
+        {
+            int amount = 0;
+            foreach (Dice dice in DiceArray)
+            {
+                if (dice.DiceValue == value)
+                {
+                    amount++;
+                }
+            }
+            return amount;
         }
         #endregion
     }
