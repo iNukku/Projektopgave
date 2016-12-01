@@ -17,7 +17,7 @@ namespace Project
         #region Constructors
         public Game()
         {
-            cup = new CupOfDice(Rulebook.AMOUNT_OF_DICE);
+            cup = new CupOfDice(Rulebook.AMOUNT_OF_DICE, Rulebook.MAX_DICE_VALUE);
             RoundNumber = 0;
         }
         #endregion

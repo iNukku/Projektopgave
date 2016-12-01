@@ -11,13 +11,15 @@ namespace Project
     {
         #region fields and properties
         private static Random rng = new Random();
+        private int maxValue;
         public int DiceValue { get; private set; }
-        public bool DiceIsLocked { get; private set; }
+        public bool IsLocked { get; private set; }
         #endregion
 
         #region Constructors
-        public Dice()
+        public Dice(int value)
         {
+            maxValue = value;
             RollDice();
         }
         #endregion
@@ -26,9 +28,9 @@ namespace Project
         //setter terningens værdi 
         public void RollDice()
         {
-            if (DiceIsLocked == false)
+            if (IsLocked == false)
             {
-                DiceValue = rng.Next(1, Rulebook.MAX_DICE_VALUE + 1);
+                DiceValue = rng.Next(1, maxValue + 1);
             }
         }
         #endregion

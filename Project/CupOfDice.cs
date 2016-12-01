@@ -9,17 +9,16 @@ namespace Project
     public class CupOfDice
     {
         #region fields and properties
-        public Dice[] DiceArray;
-        // gør private ?
+        public Dice[] DiceArray { get; private set; }
         #endregion
 
         #region Constructors
-        public CupOfDice(int value)
+        public CupOfDice(int amount, int maxValue)
         {
-            DiceArray = new Dice[value];
+            DiceArray = new Dice[amount];
             for (int i = 0; i < DiceArray.Length; i++)
             {
-                DiceArray[i] = new Dice();
+                DiceArray[i] = new Dice(maxValue);
             }
         }
         #endregion

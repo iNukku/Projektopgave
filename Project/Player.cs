@@ -8,6 +8,11 @@ namespace Project
 {
     class Player
     {
-        public Scorecard ScoreCard { get;  private set; }
+        public Scorecard PlayerScoreCard { get;  private set; }
+
+        public Player()
+        {
+            PlayerScoreCard = new Scorecard();
+        }
     }
 }

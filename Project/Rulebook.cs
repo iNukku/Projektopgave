@@ -17,7 +17,7 @@ namespace Project
 
         #region methods
         // Går igennem terningernes værdi og tjekker mulighed for enkeltværdier - returnerer værdier
-      //// public static int[] GetSingleValues(int[] values)
+      //// public static int GetSingleValues(int values)
       //  {
 
       //  }

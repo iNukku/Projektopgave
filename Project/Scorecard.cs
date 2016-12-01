@@ -15,7 +15,6 @@ namespace Project
         #endregion
 
         #region methods
-        //Kan måske overloades ?
         public bool CombinationIsLocked()
         {
             //TBD

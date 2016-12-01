@@ -46,7 +46,7 @@ namespace Project
         }
         #endregion
 
-        #region methods
+        #region methods and events
         private void roll_button_Click(object sender, EventArgs e)
         {
             if (theGame.RoundNumber < 3)
@@ -55,15 +55,12 @@ namespace Project
                 showDices(theGame.ReturnDiceValues());
                 roll_button.Text = "Roll: " + (theGame.RoundNumber + 1).ToString();
                 ones_button.Text = "hej";
-                // set roll button til disabled indtil en radiobutton er klicked (event)
             }
             else
             {
                 theGame.EndRound();
                 roll_button.Text = "Round ended";
             }
-
-
         }
 
         private void showDices(int[] diceValues)
