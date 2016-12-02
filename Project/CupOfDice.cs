@@ -32,7 +32,15 @@ namespace Project
             }
         }
 
-        public int OccurencesOfDiceValue(int value)
+        public void ResetDies()
+        {
+            foreach (Dice dice in DiceArray)
+            {
+                dice.IsLocked = false;
+            }
+        }
+
+        public int GetOccurencesOfDiceValue(int value)
         {
             int amount = 0;
             foreach (Dice dice in DiceArray)

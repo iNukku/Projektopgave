@@ -13,7 +13,7 @@ namespace Project
         private static Random rng = new Random();
         private int maxValue;
         public int DiceValue { get; private set; }
-        public bool IsLocked { get; private set; }
+        public bool IsLocked { get; set; }
         #endregion
 
         #region Constructors
@@ -25,7 +25,6 @@ namespace Project
         #endregion
 
         #region methods
-        //setter terningens værdi 
         public void RollDice()
         {
             if (IsLocked == false)

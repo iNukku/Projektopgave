@@ -10,22 +10,40 @@ namespace Project
     {
         #region Fields and properties
         public const int AMOUNT_OF_DICE = 5;
+        public const int MIN_DICE_VALUE = 1;
         public const int MAX_DICE_VALUE = 6;
         public const int MAX_ROUNDS = 3;
-        public const int MIN_SINGLEVALUES_FOR_BONUS = 63;
+        private const int MIN_SINGLEVALUES_FOR_BONUS = 63;
+        private const int BONUS = 50;
+        private const int YATZEE = 50;
         #endregion
 
         #region methods
-        // Går igennem terningernes værdi og tjekker mulighed for enkeltværdier - returnerer værdier
-      //// public static int GetSingleValues(int values)
-      //  {
+        public static int CalculateSinglesValue(int value, int occurance)
+        {
+            int totalValue = value * occurance;
+            return totalValue;
+        }
 
-      //  }
+        public static int GetOnePairValue(int value, int Occurance)
+        {
+            //TBI
+            return 0;
+        }
 
-        //public static int[] GetCombinedValues(int[] values)
-        //{
+        public static int GetBonus(int sumOfsingleDiceValues)
+        {
+            if (sumOfsingleDiceValues >= MIN_SINGLEVALUES_FOR_BONUS)
+            {
+                return BONUS;
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
-        //}
+        
         #endregion
     }
 }

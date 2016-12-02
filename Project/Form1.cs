@@ -54,7 +54,7 @@ namespace Project
                 theGame.StartNewRound();
                 showDices(theGame.ReturnDiceValues());
                 roll_button.Text = "Roll: " + (theGame.RoundNumber + 1).ToString();
-                ones_button.Text = "hej";
+                displaySinglevalueCombinations();            
             }
             else
             {
@@ -69,6 +69,19 @@ namespace Project
             {
                 diceLabels[i].Image = diceImages[diceValues[i]];
             }
+        }
+
+        private void displaySinglevalueCombinations()
+        {
+            for (int i = 0; i < singleValueButtons.Length; i++)
+            {
+                singleValueButtons[i].Text = theGame.ReturnSinglesValues(i + 1).ToString();
+            }
+        }
+
+        private void displayCombinedValues()
+        {
+
         }
         #endregion
     }
