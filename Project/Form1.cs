@@ -16,6 +16,7 @@ namespace Project
         private Label[] diceLabels;
         private RadioButton[] singleValueButtons;
         private RadioButton[] multiValueButtons;
+        private CheckBox[] diceLocks;
         private Game theGame = new Game();
         private Image[] diceImages = new Image[] {
             Properties.Resources.dice_blank,
@@ -43,6 +44,9 @@ namespace Project
             {
                 onepair_button, twopairs_button, three_same_button, four_same_button, full_house_button, small_str_button, large_str_button, yatzy_button, chance_button
             };
+            diceLocks = new CheckBox[]{
+                checkbox_dice_1, checkBox_dice_2, checkBox_dice_3, checkBox_dice_4, checkBox_dice_5
+            };
         }
         #endregion
 
@@ -51,10 +55,12 @@ namespace Project
         {
             if (theGame.RoundNumber < 3)
             {
+                lockDies();
                 theGame.StartNewRound();
-                showDices(theGame.ReturnDiceValues());
+                displayDies(theGame.ReturnDiceValues());
                 roll_button.Text = "Roll: " + (theGame.RoundNumber + 1).ToString();
-                displaySinglevalueCombinations();            
+                displaySinglevalueCombinations();
+                chooseSingleValueCombination();         
             }
             else
             {
@@ -63,7 +69,7 @@ namespace Project
             }
         }
 
-        private void showDices(int[] diceValues)
+        private void displayDies(int[] diceValues)
         {
             for (int i = 0; i < diceLabels.Length; i++)
             {
@@ -75,13 +81,39 @@ namespace Project
         {
             for (int i = 0; i < singleValueButtons.Length; i++)
             {
-                singleValueButtons[i].Text = theGame.ReturnSinglesValues(i + 1).ToString();
+                if (singleValueButtons[i].Enabled == true)
+                {
+                    singleValueButtons[i].Text = theGame.ReturnSinglesValues(i + 1).ToString();
+                }
             }
         }
 
         private void displayCombinedValues()
         {
+            //kald til returnCombinedValues()
+        }
 
+        private void lockDies()
+        {
+            for (int i = 0; i < diceLocks.Length; i++)
+            {
+                if (diceLocks[i].Checked)
+                {
+                    theGame.LockDies(i);
+                }
+            }
+        }
+
+        private void chooseSingleValueCombination()
+        {
+            foreach (RadioButton button in singleValueButtons)
+            {
+                if (button.Checked == true && button.Enabled == true)
+                {
+                    button.Enabled = false;
+                    button.Text = "chosen";
+                }
+            }
         }
         #endregion
     }

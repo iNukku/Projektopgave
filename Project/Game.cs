@@ -45,6 +45,11 @@ namespace Project
 
         }
 
+        public void LockDies(int value)
+        {
+            cup.DiceArray[value].IsLocked = true;
+        }
+
         public int[] ReturnDiceValues()
         {
             for (int i = 0; i < diceValues.Length; i++)
@@ -59,6 +64,12 @@ namespace Project
         {
             int points = Rulebook.CalculateSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));       
             return points;
+        }
+
+        public int ReturnCombinationValues()
+        {
+            //TBD
+            return 22;
         }
         #endregion
 

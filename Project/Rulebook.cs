@@ -25,10 +25,31 @@ namespace Project
             return totalValue;
         }
 
-        public static int GetOnePairValue(int value, int Occurance)
+        public static int GetOnePairValue(int[] value)
         {
-            //TBI
-            return 0;
+            Array.Sort(value);
+            Array.Reverse(value);
+            for (int i = 0; i < value.Length; i++)
+            {
+
+            }
+            return 2;
+        }
+
+        public static int GetTwoPairValue(int valueOne, int valueTwo)
+        {
+            int total = (valueOne * 2) + (valueTwo * 2);
+            return total;
+        }
+
+        public static int GetThreeOfAKindValue(int value)
+        {
+            return value * 3;
+        }
+
+        public static int GetFourOfAKindValue(int value)
+        {
+            return value * 4;
         }
 
         public static int GetBonus(int sumOfsingleDiceValues)

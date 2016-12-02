@@ -36,7 +36,7 @@
             this.checkbox_dice_1 = new System.Windows.Forms.CheckBox();
             this.checkBox_dice_2 = new System.Windows.Forms.CheckBox();
             this.checkBox_dice_3 = new System.Windows.Forms.CheckBox();
-            this.checkBox3_dice_4 = new System.Windows.Forms.CheckBox();
+            this.checkBox_dice_4 = new System.Windows.Forms.CheckBox();
             this.checkBox_dice_5 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,6 +73,8 @@
             this.chance_button = new System.Windows.Forms.RadioButton();
             this.yatzy_button = new System.Windows.Forms.RadioButton();
             this.roll_button = new System.Windows.Forms.Button();
+            this.sum_one_label = new System.Windows.Forms.Label();
+            this.bonus_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dice_label_1
@@ -153,16 +155,16 @@
             this.checkBox_dice_3.Text = "Hold";
             this.checkBox_dice_3.UseVisualStyleBackColor = true;
             // 
-            // checkBox3_dice_4
+            // checkBox_dice_4
             // 
-            this.checkBox3_dice_4.AutoSize = true;
-            this.checkBox3_dice_4.Location = new System.Drawing.Point(280, 81);
-            this.checkBox3_dice_4.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox3_dice_4.Name = "checkBox3_dice_4";
-            this.checkBox3_dice_4.Size = new System.Drawing.Size(48, 17);
-            this.checkBox3_dice_4.TabIndex = 8;
-            this.checkBox3_dice_4.Text = "Hold";
-            this.checkBox3_dice_4.UseVisualStyleBackColor = true;
+            this.checkBox_dice_4.AutoSize = true;
+            this.checkBox_dice_4.Location = new System.Drawing.Point(280, 81);
+            this.checkBox_dice_4.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox_dice_4.Name = "checkBox_dice_4";
+            this.checkBox_dice_4.Size = new System.Drawing.Size(48, 17);
+            this.checkBox_dice_4.TabIndex = 8;
+            this.checkBox_dice_4.Text = "Hold";
+            this.checkBox_dice_4.UseVisualStyleBackColor = true;
             // 
             // checkBox_dice_5
             // 
@@ -572,11 +574,33 @@
             this.roll_button.UseVisualStyleBackColor = true;
             this.roll_button.Click += new System.EventHandler(this.roll_button_Click);
             // 
+            // sum_one_label
+            // 
+            this.sum_one_label.AutoSize = true;
+            this.sum_one_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sum_one_label.Location = new System.Drawing.Point(280, 273);
+            this.sum_one_label.Name = "sum_one_label";
+            this.sum_one_label.Size = new System.Drawing.Size(15, 15);
+            this.sum_one_label.TabIndex = 45;
+            this.sum_one_label.Text = "0";
+            // 
+            // bonus_label
+            // 
+            this.bonus_label.AutoSize = true;
+            this.bonus_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.bonus_label.Location = new System.Drawing.Point(280, 299);
+            this.bonus_label.Name = "bonus_label";
+            this.bonus_label.Size = new System.Drawing.Size(15, 15);
+            this.bonus_label.TabIndex = 46;
+            this.bonus_label.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 581);
+            this.Controls.Add(this.bonus_label);
+            this.Controls.Add(this.sum_one_label);
             this.Controls.Add(this.roll_button);
             this.Controls.Add(this.yatzy_button);
             this.Controls.Add(this.chance_button);
@@ -613,7 +637,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.checkBox_dice_5);
-            this.Controls.Add(this.checkBox3_dice_4);
+            this.Controls.Add(this.checkBox_dice_4);
             this.Controls.Add(this.checkBox_dice_3);
             this.Controls.Add(this.checkBox_dice_2);
             this.Controls.Add(this.checkbox_dice_1);
@@ -640,7 +664,7 @@
         private System.Windows.Forms.CheckBox checkbox_dice_1;
         private System.Windows.Forms.CheckBox checkBox_dice_2;
         private System.Windows.Forms.CheckBox checkBox_dice_3;
-        private System.Windows.Forms.CheckBox checkBox3_dice_4;
+        private System.Windows.Forms.CheckBox checkBox_dice_4;
         private System.Windows.Forms.CheckBox checkBox_dice_5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -677,6 +701,8 @@
         private System.Windows.Forms.RadioButton chance_button;
         private System.Windows.Forms.RadioButton yatzy_button;
         private System.Windows.Forms.Button roll_button;
+        private System.Windows.Forms.Label sum_one_label;
+        private System.Windows.Forms.Label bonus_label;
     }
 }
 
