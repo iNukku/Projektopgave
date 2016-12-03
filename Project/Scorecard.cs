@@ -9,25 +9,14 @@ namespace Project
     public class Scorecard
     {
         #region fields and properties
-        private int ones;
-
-        public int Ones
-        {
-            get { return ones; }
-            set { ones = value; }
-        }
-
+        private Dictionary<string, int> scores = new Dictionary<string, int>();
         #endregion
 
         #region constructor
         #endregion
 
         #region methods
-        public bool CombinationIsLocked()
-        {
-            //TBD
-            return false;
-        }
+        
         #endregion
     }
 }

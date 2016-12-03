@@ -19,7 +19,7 @@ namespace Project
         #endregion
 
         #region methods
-        public static int CalculateSinglesValue(int value, int occurance)
+        public static int GetSinglesValue(int value, int occurance)
         {
             int totalValue = value * occurance;
             return totalValue;
@@ -41,40 +41,138 @@ namespace Project
             return total;
         }
 
-        public static int GetTwoPairValue()
-        {
-            //TBD
-            return 22;
+        public static int GetTwoPairValue(int[] values)
+        {//check lige
+            int firstPair = 0;
+            int secondPair = 0;
+
+            Array.Sort(values);
+
+            for (int i = 0; i < values.Length - 1; i++)
+            {
+                if (firstPair == 0 && values[i] == values[i + 1])
+                {
+                    firstPair = (values[i] * 2);
+                    i += 1;
+                }
+                if (firstPair != 0 && values[i] == values[i + 1])
+                {
+                    secondPair = (values[i] * 2);
+                }
+
+            }
+            if (firstPair == 0 || secondPair == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return firstPair + secondPair;
+            }
         }
 
-        public static int GetThreeOfAKindValue()
+        public static int GetThreeOfAKindValue(int[] values)
         {
-            //TBD
-            return 33;
+            for (int i = 0; i < values.Length -2; i++)
+            {
+                if (values[i] == values[i +1] && values[i] == values[i + 2])
+                {
+                    return values[i] * 3;
+                }
+            }
+            return 0;
         }
 
-        public static int GetFourOfAKindValue()
+        public static int GetFourOfAKindValue(int[] values)
         {
-            //TBD
-            return 44;
+            for (int i = 0; i < values.Length - 3; i++)
+            {
+                if (values[i] == values[i + 1] && values[i] == values[i + 2] && values[i] == values[i + 3])
+                {
+                    return values[i] * 4;
+                }
+            }
+            return 0;
         }
         
-        public static int GetFullHouseValue()
+        public static int GetFullHouseValue(int[] values)
         {
-            //TBD
-            return 12;
+            bool containsTwoPairsAtEnds = false;
+            bool containsOneTripple = false;
+
+            Array.Sort(values);
+
+            if (values[0] == values[1] && values[4] == values[3])
+            {
+                containsTwoPairsAtEnds = true;
+            }
+            if (values[2] == values[0] || values[2] == values[4])
+            {
+                containsOneTripple = true;
+            }
+
+            if (containsTwoPairsAtEnds && containsOneTripple && values[1] != values[4])
+            {
+                return values.Sum();
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public static int GetSmallStraightValue()
+        public static int GetSmallStraightValue(int[] values)
         {
-            //TBD
-            return 29;
+            Array.Sort(values);
+            bool hasSmallStraight = true;
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i] == i +1 && hasSmallStraight == true)
+                {
+                    hasSmallStraight = true;
+                }
+                else
+                {
+                    hasSmallStraight = false;
+                }
+            }
+
+            if (hasSmallStraight == true)
+            {
+                return 15;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
-        public static int GetLargeStraightValue()
+        public static int GetLargeStraightValue(int[] values)
         {
-            //TBD
-            return 99;
+            Array.Sort(values);
+            bool hasLargeStraight = true;
+
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i] == i + 2 && hasLargeStraight == true)
+                {
+                    hasLargeStraight = true;
+                }
+                else
+                {
+                    hasLargeStraight = false;
+                }
+            }
+
+            if (hasLargeStraight == true)
+            {
+                return 20;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public static int GetYatzeeValue(int[] values)
@@ -125,7 +223,19 @@ namespace Project
             }
         }
 
-        
+        private static int GetOccurencesOfDiceValue(int value, int[] values)
+        {
+            int amount = 0;
+            
+            foreach (int værdi in values)
+            {
+                if (value == værdi)
+                {
+                    amount++;
+                }
+            }
+            return amount;
+        }
         #endregion
     }
 }

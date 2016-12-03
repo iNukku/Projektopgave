@@ -67,7 +67,7 @@ namespace Project
         //returnerer pointantal for en given mængde møngde af terninger af samme værdi
         public int ReturnSinglesValues(int dicevalue)
         {
-            int points = Rulebook.CalculateSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));       
+            int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));       
             return points;
         }
 
@@ -76,12 +76,12 @@ namespace Project
             int[] values = new int[]
             {
                 Rulebook.GetOnePairValue(diceValues),
-                Rulebook.GetTwoPairValue(),
-                Rulebook.GetThreeOfAKindValue(),
-                Rulebook.GetFourOfAKindValue(),
-                Rulebook.GetFullHouseValue(),
-                Rulebook.GetSmallStraightValue(),
-                Rulebook.GetLargeStraightValue(),
+                Rulebook.GetTwoPairValue(diceValues),
+                Rulebook.GetThreeOfAKindValue(diceValues),
+                Rulebook.GetFourOfAKindValue(diceValues),
+                Rulebook.GetFullHouseValue(diceValues),
+                Rulebook.GetSmallStraightValue(diceValues),
+                Rulebook.GetLargeStraightValue(diceValues),
                 Rulebook.GetYatzeeValue(diceValues),
                 Rulebook.GetChanceVValue(diceValues)
             };
