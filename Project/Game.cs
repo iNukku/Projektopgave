@@ -33,7 +33,7 @@ namespace Project
 
         public void StartNewRound()
         {
-            if (RoundNumber != 3)
+            if (RoundNumber < Rulebook.MAX_ROUNDS)
             {
                 cup.Shuffle();
                 RoundNumber++;       
@@ -42,7 +42,12 @@ namespace Project
 
         public void EndRound()
         {
+            cup.ResetDies();
+        }
 
+        public void ChooseCombination()
+        {
+            //modtag information fra form og sæt værdi i player.scorecard
         }
 
         public void LockDies(int value)
@@ -66,11 +71,23 @@ namespace Project
             return points;
         }
 
-        public int ReturnCombinationValues()
+        public int ReturnCombinationValues(int indexvalue) //lav check for at se om værdi er i Scorecard - if so: returner scorecardværdi
         {
-            //TBD
-            return 22;
+            int[] values = new int[]
+            {
+                Rulebook.GetOnePairValue(diceValues),
+                Rulebook.GetTwoPairValue(),
+                Rulebook.GetThreeOfAKindValue(),
+                Rulebook.GetFourOfAKindValue(),
+                Rulebook.GetFullHouseValue(),
+                Rulebook.GetSmallStraightValue(),
+                Rulebook.GetLargeStraightValue(),
+                Rulebook.GetYatzeeValue(diceValues),
+                Rulebook.GetChanceVValue(diceValues)
+            };
+            return values[indexvalue];
         }
+
         #endregion
 
     }

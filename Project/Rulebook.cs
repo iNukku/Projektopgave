@@ -27,29 +27,90 @@ namespace Project
 
         public static int GetOnePairValue(int[] value)
         {
+            int total = 0;
             Array.Sort(value);
             Array.Reverse(value);
-            for (int i = 0; i < value.Length; i++)
+            for (int i = 0; i < value.Length -1; i++)
             {
-
+                if (value[i] == value[i+1])
+                {
+                    total = value[i] + value[i + 1];
+                    return total;
+                }
             }
-            return 2;
-        }
-
-        public static int GetTwoPairValue(int valueOne, int valueTwo)
-        {
-            int total = (valueOne * 2) + (valueTwo * 2);
             return total;
         }
 
-        public static int GetThreeOfAKindValue(int value)
+        public static int GetTwoPairValue()
         {
-            return value * 3;
+            //TBD
+            return 22;
         }
 
-        public static int GetFourOfAKindValue(int value)
+        public static int GetThreeOfAKindValue()
         {
-            return value * 4;
+            //TBD
+            return 33;
+        }
+
+        public static int GetFourOfAKindValue()
+        {
+            //TBD
+            return 44;
+        }
+        
+        public static int GetFullHouseValue()
+        {
+            //TBD
+            return 12;
+        }
+
+        public static int GetSmallStraightValue()
+        {
+            //TBD
+            return 29;
+        }
+
+        public static int GetLargeStraightValue()
+        {
+            //TBD
+            return 99;
+        }
+
+        public static int GetYatzeeValue(int[] values)
+        {
+            bool hasYatzy = false;
+            foreach (int value in values)
+            {
+                if (value == values[1])
+                {
+                    hasYatzy = true;
+                }
+                else
+                {
+                    hasYatzy = false;
+                    continue;
+                }
+            }
+
+            if (hasYatzy == true)
+            {
+                return 50;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public static int GetChanceVValue(int[] values)
+        {
+            int total = 0;
+            foreach (int value in values)
+            {
+                total += value;
+            }
+            return total;
         }
 
         public static int GetBonus(int sumOfsingleDiceValues)

@@ -9,6 +9,14 @@ namespace Project
     public class Scorecard
     {
         #region fields and properties
+        private int ones;
+
+        public int Ones
+        {
+            get { return ones; }
+            set { ones = value; }
+        }
+
         #endregion
 
         #region constructor

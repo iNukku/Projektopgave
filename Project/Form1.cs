@@ -60,6 +60,7 @@ namespace Project
                 displayDies(theGame.ReturnDiceValues());
                 roll_button.Text = "Roll: " + (theGame.RoundNumber + 1).ToString();
                 displaySinglevalueCombinations();
+                displayCombinedValues();
                 chooseSingleValueCombination();         
             }
             else
@@ -90,7 +91,10 @@ namespace Project
 
         private void displayCombinedValues()
         {
-            //kald til returnCombinedValues()
+            for (int i = 0; i < multiValueButtons.Length; i++)
+            {
+                multiValueButtons[i].Text = theGame.ReturnCombinationValues(i).ToString();
+            }
         }
 
         private void lockDies()
@@ -104,7 +108,7 @@ namespace Project
             }
         }
 
-        private void chooseSingleValueCombination()
+        private void chooseSingleValueCombination() //det bør være game,d er gør dette -> tjek evt. med game for at enable = false
         {
             foreach (RadioButton button in singleValueButtons)
             {
@@ -112,6 +116,7 @@ namespace Project
                 {
                     button.Enabled = false;
                     button.Text = "chosen";
+                    button.BackColor = Color.Bisque;
                 }
             }
         }

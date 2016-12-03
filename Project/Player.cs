@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    class Player
+    public class Player
     {
         public string Name { get; }
         public Scorecard PlayerScoreCard { get;  private set; }
