@@ -42,33 +42,37 @@ namespace Project
         }
 
         public static int GetTwoPairValue(int[] values)
-        {//check lige
-            int firstPair = 0;
-            int secondPair = 0;
+        {
+            int startpairValue = 0;
+            int endPairValue = 0;
 
             Array.Sort(values);
 
-            for (int i = 0; i < values.Length - 1; i++)
+            if (values[0] == values[1] || values[1] == values[2])
             {
-                if (firstPair == 0 && values[i] == values[i + 1])
-                {
-                    firstPair = (values[i] * 2);
-                    i += 1;
-                }
-                if (firstPair != 0 && values[i] == values[i + 1])
-                {
-                    secondPair = (values[i] * 2);
-                }
-
+                startpairValue = values[1] * 2;
             }
-            if (firstPair == 0 || secondPair == 0)
+
+            if (values[3] == values[4])
             {
-                return 0;
+                endPairValue = values[3] * 2;
+            }
+
+            if (values[2] == values[3] && values[1] != values[3])
+            {
+                endPairValue = values[3] * 2;
+            }
+
+            if (startpairValue != 0 && endPairValue != 0)
+            {
+                return startpairValue + endPairValue;
             }
             else
             {
-                return firstPair + secondPair;
+                return 0;
             }
+            
+
         }
 
         public static int GetThreeOfAKindValue(int[] values)
@@ -177,21 +181,9 @@ namespace Project
 
         public static int GetYatzeeValue(int[] values)
         {
-            bool hasYatzy = false;
-            foreach (int value in values)
-            {
-                if (value == values[1])
-                {
-                    hasYatzy = true;
-                }
-                else
-                {
-                    hasYatzy = false;
-                    continue;
-                }
-            }
+            Array.Sort(values);
 
-            if (hasYatzy == true)
+            if (values[0] == values[values.Length -1])
             {
                 return 50;
             }
@@ -223,19 +215,19 @@ namespace Project
             }
         }
 
-        private static int GetOccurencesOfDiceValue(int value, int[] values)
-        {
-            int amount = 0;
+        //private static int GetOccurencesOfDiceValue(int value, int[] values)
+        //{
+        //    int amount = 0;
             
-            foreach (int værdi in values)
-            {
-                if (value == værdi)
-                {
-                    amount++;
-                }
-            }
-            return amount;
-        }
+        //    foreach (int værdi in values)
+        //    {
+        //        if (value == værdi)
+        //        {
+        //            amount++;
+        //        }
+        //    }
+        //    return amount;
+        //}
         #endregion
     }
 }
