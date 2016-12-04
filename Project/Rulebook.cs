@@ -214,20 +214,6 @@ namespace Project
                 return 0;
             }
         }
-
-        //private static int GetOccurencesOfDiceValue(int value, int[] values)
-        //{
-        //    int amount = 0;
-            
-        //    foreach (int værdi in values)
-        //    {
-        //        if (value == værdi)
-        //        {
-        //            amount++;
-        //        }
-        //    }
-        //    return amount;
-        //}
         #endregion
     }
 }

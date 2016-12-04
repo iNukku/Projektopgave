@@ -26,6 +26,7 @@ namespace Project
             Properties.Resources.dice_4,
             Properties.Resources.dice_5,
             Properties.Resources.dice_6 };
+        private int chosenButtonIndex;
         #endregion
 
         #region constructor
@@ -42,32 +43,33 @@ namespace Project
             };
             multiValueButtons = new RadioButton[]
             {
-                onepair_button, twopairs_button, three_same_button, four_same_button, full_house_button, small_str_button, large_str_button, yatzy_button, chance_button
+                onepair_button, twopairs_button, three_same_button, four_same_button, full_house_button, small_str_button, large_str_button, chance_button, yatzy_button
             };
             diceLocks = new CheckBox[]{
                 checkbox_dice_1, checkBox_dice_2, checkBox_dice_3, checkBox_dice_4, checkBox_dice_5
             };
+            roll_button.Text = "Round 1";
         }
         #endregion
 
         #region methods and events
         private void roll_button_Click(object sender, EventArgs e)
         {
-            if (theGame.RoundNumber < 3)
+            if (theGame.RoundIsInProgress == true)
             {
-                lockDies();
-                theGame.StartNewRound();
+                theGame.StartNewRound(UserLockedDies(), chooseCombination());
                 displayDies(theGame.ReturnDiceValues());
-                roll_button.Text = "Roll: " + (theGame.RoundNumber + 1).ToString();
+                roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
                 displaySinglevalueCombinations();
                 displayCombinedValues();
-                chooseSingleValueCombination();         
+
+                if (theGame.RoundNumber == 4  || theGame.RoundIsInProgress == false)
+                {
+                    roll_button.Text = "Click for next turn";
+                    showDiceLockbuttons();
+                }
             }
-            else
-            {
-                theGame.EndRound();
-                roll_button.Text = "Round ended";
-            }
+
         }
 
         private void displayDies(int[] diceValues)
@@ -97,29 +99,60 @@ namespace Project
             }
         }
 
-        private void lockDies()
+        private bool[] UserLockedDies()
         {
+            bool[] diceWasLocked = new bool[diceLocks.Length];
             for (int i = 0; i < diceLocks.Length; i++)
             {
-                if (diceLocks[i].Checked)
+                if (diceLocks[i].Checked == false)
                 {
-                    theGame.LockDies(i);
+                    diceWasLocked[i] = false;
+                }
+                else
+                {
+                    diceWasLocked[i] = true;
+                    diceLocks[i].Visible = false;
                 }
             }
+
+            return diceWasLocked;
         }
 
-        private void chooseSingleValueCombination() //det bør være game,d er gør dette -> tjek evt. med game for at enable = false
+        private void showDiceLockbuttons()
         {
-            foreach (RadioButton button in singleValueButtons)
+            foreach (CheckBox box in diceLocks)
             {
-                if (button.Checked == true && button.Enabled == true)
-                {
-                    button.Enabled = false;
-                    button.Text = "chosen";
-                    button.BackColor = Color.Bisque;
-                }
+                box.Visible = true;
+                box.Checked = false;
             }
         }
+        //Joins the two radiobutton arrays into one and evaluates if a button has been chosen - returns the index of the chosen button or -1 if evaluation failed
+        private int chooseCombination()
+        {
+            RadioButton[] allRadiobuttons = new RadioButton[singleValueButtons.Length + multiValueButtons.Length];
+
+            for (int i = 0; i < singleValueButtons.Length; i++)
+            {
+                allRadiobuttons[i] = singleValueButtons[i];
+            }
+
+            for (int i = singleValueButtons.Length; i < allRadiobuttons.Length; i++)
+            {
+                allRadiobuttons[i] = multiValueButtons[i - singleValueButtons.Length];
+            }
+
+            for (int i = 0; i < allRadiobuttons.Length; i++)
+            {
+                if (allRadiobuttons[i].Checked == true && allRadiobuttons[i].Enabled == true)
+                {
+                    allRadiobuttons[i].Enabled = false;
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        //send værdi til thegame og Lås værdi til scoresheet
         #endregion
     }
 }

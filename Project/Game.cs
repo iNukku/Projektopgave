@@ -13,6 +13,7 @@ namespace Project
         private Player playerOne;
         public int RoundNumber { get; private set; }
         private int[] diceValues = new int[Rulebook.AMOUNT_OF_DICE];
+        public bool RoundIsInProgress { get; private set; }
         #endregion
 
         #region Constructors
@@ -28,31 +29,51 @@ namespace Project
         public void StartNewTurn()
         {
             cup.ResetDies();
-            RoundNumber = 0;
+            RoundNumber = 1;
+            RoundIsInProgress = true;
         }
 
-        public void StartNewRound()
+        public void StartNewRound(bool[] values, int chosenCombination)
         {
-            if (RoundNumber < Rulebook.MAX_ROUNDS)
+            if (RoundNumber <= Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
+                LockDies(values);
                 cup.Shuffle();
-                RoundNumber++;       
+                RoundNumber++;
+            }else
+            {
+                endRound(chosenCombination);
             }
         }
 
-        public void EndRound()
+        //låser låste terninger op og evaluerer kombination
+        private void endRound()
         {
-            cup.ResetDies();
+
         }
 
-        public void ChooseCombination()
+        private void endRound(int indexOfChosenCombination)
+        {
+            //Brug index til at sætte kombination
+            cup.ResetDies();
+            RoundIsInProgress = false;
+        }
+
+        public void setCombination()
         {
             //modtag information fra form og sæt værdi i player.scorecard
         }
 
-        public void LockDies(int value)
+        private void LockDies(bool[] values)
         {
-            cup.DiceArray[value].IsLocked = true;
+            for (int i = 0; i < values.Length; i++)
+            {
+                if (values[i] == true)
+                {
+                    cup.DiceArray[i].IsLocked = true;
+                }
+            }
+            //cup.DiceArray[value].IsLocked = true;
         }
 
         public int[] ReturnDiceValues()
@@ -82,8 +103,9 @@ namespace Project
                 Rulebook.GetFullHouseValue(diceValues),
                 Rulebook.GetSmallStraightValue(diceValues),
                 Rulebook.GetLargeStraightValue(diceValues),
-                Rulebook.GetYatzeeValue(diceValues),
-                Rulebook.GetChanceVValue(diceValues)
+                Rulebook.GetChanceVValue(diceValues),
+                Rulebook.GetYatzeeValue(diceValues)
+
             };
             return values[indexvalue];
         }
