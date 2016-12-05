@@ -26,7 +26,7 @@ namespace Project
             Properties.Resources.dice_4,
             Properties.Resources.dice_5,
             Properties.Resources.dice_6 };
-        private int chosenButtonIndex;
+        private bool CombinationHasBeenChosen = false;
         #endregion
 
         #region constructor
@@ -55,21 +55,36 @@ namespace Project
         #region methods and events
         private void roll_button_Click(object sender, EventArgs e)
         {
-            if (theGame.RoundIsInProgress == true)
-            {
-                theGame.StartNewRound(UserLockedDies(), chooseCombination());
-                displayDies(theGame.ReturnDiceValues());
-                roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
-                displaySinglevalueCombinations();
-                displayCombinedValues();
+            theGame.EvaluateRoll(userLockedDies(), chooseCombination());
 
-                if (theGame.RoundNumber == 4  || theGame.RoundIsInProgress == false)
+            if (theGame.GameHasEnded == false)
+            {
+                if (theGame.RoundIsInProgress == true)
                 {
-                    roll_button.Text = "Click for next turn";
-                    showDiceLockbuttons();
+                    displayDies(theGame.ReturnDiceValues());
+                    roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
+                    displaySinglevalueCombinations();
+                    displayCombinedValues();
+
+                    if (theGame.RoundNumber == 4 || theGame.RoundIsInProgress == false)
+                    {
+                        roll_button.Text = "Click for next turn";
+                        //showDiceLockbuttons();
+                    }
+                }
+                else if (theGame.RoundIsInProgress == false && CombinationHasBeenChosen == true)
+                {
+                    MessageBox.Show("Start new round here");
+                }
+                else
+                {
+                    MessageBox.Show("Choose a combination to procede");
                 }
             }
-
+            else
+            {
+                MessageBox.Show("Game has ended - thank you for playing :)");
+            }
         }
 
         private void displayDies(int[] diceValues)
@@ -99,7 +114,7 @@ namespace Project
             }
         }
 
-        private bool[] UserLockedDies()
+        private bool[] userLockedDies()
         {
             bool[] diceWasLocked = new bool[diceLocks.Length];
             for (int i = 0; i < diceLocks.Length; i++)
@@ -130,6 +145,7 @@ namespace Project
         private int chooseCombination()
         {
             RadioButton[] allRadiobuttons = new RadioButton[singleValueButtons.Length + multiValueButtons.Length];
+            CombinationHasBeenChosen = false;
 
             for (int i = 0; i < singleValueButtons.Length; i++)
             {
@@ -146,6 +162,7 @@ namespace Project
                 if (allRadiobuttons[i].Checked == true && allRadiobuttons[i].Enabled == true)
                 {
                     allRadiobuttons[i].Enabled = false;
+                    CombinationHasBeenChosen = true;
                     return i;
                 }
             }

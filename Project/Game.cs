@@ -14,6 +14,7 @@ namespace Project
         public int RoundNumber { get; private set; }
         private int[] diceValues = new int[Rulebook.AMOUNT_OF_DICE];
         public bool RoundIsInProgress { get; private set; }
+        public bool GameHasEnded { get; private set; }
         #endregion
 
         #region Constructors
@@ -26,6 +27,38 @@ namespace Project
         #endregion
 
         #region methods
+        public void EvaluateRoll(bool[] values, int chosenCombination)
+        {
+            //Check if game ended and end round if a combination was chosen by the user
+            if (chosenCombination != -1)
+            {
+                setCombination(chosenCombination);
+                checkScoreCardStatus();
+                if (GameHasEnded == true)
+                {
+                    endGame();
+                }
+                else
+                {
+                    endRound();
+                }
+            }
+
+            //check if round needs to end
+            if (RoundNumber < Rulebook.MAX_ROUNDS && chosenCombination == -1)
+            {
+                RoundIsInProgress = true;
+                StartNewRound(values);
+            }
+            else if (RoundIsInProgress && GameHasEnded == false)
+            {
+                endRound();
+            }
+            else
+            {
+                StartNewTurn();
+            }
+        }
         public void StartNewTurn()
         {
             cup.ResetDies();
@@ -33,23 +66,22 @@ namespace Project
             RoundIsInProgress = true;
         }
 
-        public void StartNewRound(bool[] values, int chosenCombination)
+        public void StartNewRound(bool[] values)
         {
-            if (RoundNumber <= Rulebook.MAX_ROUNDS && chosenCombination == -1)
-            {
-                LockDies(values);
-                cup.Shuffle();
-                RoundNumber++;
-            }else
-            {
-                endRound(chosenCombination);
-            }
+            LockDies(values);
+            cup.Shuffle();
+            RoundNumber++;
         }
 
         //låser låste terninger op og evaluerer kombination
         private void endRound()
         {
+            RoundIsInProgress = false;
+        }
 
+        private void endGame()
+        {
+            
         }
 
         private void endRound(int indexOfChosenCombination)
@@ -59,9 +91,21 @@ namespace Project
             RoundIsInProgress = false;
         }
 
-        public void setCombination()
+        private void setCombination(int value)
         {
-            //modtag information fra form og sæt værdi i player.scorecard
+            if (value <= 5)
+            {
+                playerOne.setScoreCardValue(value, ReturnSinglesValues(value));
+            }
+            else
+            {
+                playerOne.setScoreCardValue(value, ReturnCombinationValues(value - 6));
+            }
+        }
+
+        private void checkScoreCardStatus()
+        {
+            //check om pladen er fuld
         }
 
         private void LockDies(bool[] values)
@@ -85,7 +129,7 @@ namespace Project
             return diceValues;
         }
 
-        //returnerer pointantal for en given mængde møngde af terninger af samme værdi
+        //returnerer pointantal for en given mængde møngde af terninger af samme værdi - tjek om resultater er i scorecard if so: returner istedet scorecardvalue
         public int ReturnSinglesValues(int dicevalue)
         {
             int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));       
@@ -105,7 +149,6 @@ namespace Project
                 Rulebook.GetLargeStraightValue(diceValues),
                 Rulebook.GetChanceVValue(diceValues),
                 Rulebook.GetYatzeeValue(diceValues)
-
             };
             return values[indexvalue];
         }
