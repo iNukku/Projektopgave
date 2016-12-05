@@ -10,7 +10,7 @@ namespace Project
     {
         #region Fields and Properties
         public string Name { get; }
-        public Scorecard PlayerScoreCard { get; set; }
+        public Scorecard PlayerScoreCard { get; private set; }
         #endregion
 
         #region constructors

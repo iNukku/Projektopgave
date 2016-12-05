@@ -29,11 +29,12 @@ namespace Project
         #region methods
         public void EvaluateRoll(bool[] values, int chosenCombination)
         {
-            //Check if game ended and end round if a combination was chosen by the user
+            //Check if the combination chosen by the user causes the game to end - else end round
             if (chosenCombination != -1)
             {
                 setCombination(chosenCombination);
                 checkScoreCardStatus();
+
                 if (GameHasEnded == true)
                 {
                     endGame();
@@ -50,7 +51,7 @@ namespace Project
                 RoundIsInProgress = true;
                 StartNewRound(values);
             }
-            else if (RoundIsInProgress && GameHasEnded == false)
+            else if (RoundNumber == Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 endRound();
             }
@@ -59,14 +60,15 @@ namespace Project
                 StartNewTurn();
             }
         }
-        public void StartNewTurn()
+
+        private void StartNewTurn()
         {
             cup.ResetDies();
             RoundNumber = 1;
             RoundIsInProgress = true;
         }
 
-        public void StartNewRound(bool[] values)
+        private void StartNewRound(bool[] values)
         {
             LockDies(values);
             cup.Shuffle();
@@ -81,13 +83,6 @@ namespace Project
 
         private void endGame()
         {
-            
-        }
-
-        private void endRound(int indexOfChosenCombination)
-        {
-            //Brug index til at sætte kombination
-            cup.ResetDies();
             RoundIsInProgress = false;
         }
 

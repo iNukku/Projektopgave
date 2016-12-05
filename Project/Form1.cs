@@ -26,7 +26,6 @@ namespace Project
             Properties.Resources.dice_4,
             Properties.Resources.dice_5,
             Properties.Resources.dice_6 };
-        private bool CombinationHasBeenChosen = false;
         #endregion
 
         #region constructor
@@ -65,26 +64,17 @@ namespace Project
                     roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
                     displaySinglevalueCombinations();
                     displayCombinedValues();
-
-                    if (theGame.RoundNumber == 4 || theGame.RoundIsInProgress == false)
-                    {
-                        roll_button.Text = "Click for next turn";
-                        //showDiceLockbuttons();
-                    }
-                }
-                else if (theGame.RoundIsInProgress == false && CombinationHasBeenChosen == true)
-                {
-                    MessageBox.Show("Start new round here");
                 }
                 else
                 {
-                    MessageBox.Show("Choose a combination to procede");
+                    MessageBox.Show("choose a combination to procede");
                 }
             }
             else
             {
-                MessageBox.Show("Game has ended - thank you for playing :)");
+                MessageBox.Show("Game has ended - thank you for playing :-)");
             }
+
         }
 
         private void displayDies(int[] diceValues)
@@ -141,11 +131,10 @@ namespace Project
                 box.Checked = false;
             }
         }
-        //Joins the two radiobutton arrays into one and evaluates if a button has been chosen - returns the index of the chosen button or -1 if evaluation failed
+        //Joins the two radiobutton arrays into one and evaluates if a button has been chosen - returns the index of the chosen button or -1 if no button was chosen
         private int chooseCombination()
         {
             RadioButton[] allRadiobuttons = new RadioButton[singleValueButtons.Length + multiValueButtons.Length];
-            CombinationHasBeenChosen = false;
 
             for (int i = 0; i < singleValueButtons.Length; i++)
             {
@@ -162,14 +151,12 @@ namespace Project
                 if (allRadiobuttons[i].Checked == true && allRadiobuttons[i].Enabled == true)
                 {
                     allRadiobuttons[i].Enabled = false;
-                    CombinationHasBeenChosen = true;
+                    allRadiobuttons[i].BackColor = Color.YellowGreen;
                     return i;
                 }
             }
             return -1;
         }
-
-        //send værdi til thegame og Lås værdi til scoresheet
         #endregion
     }
 }
