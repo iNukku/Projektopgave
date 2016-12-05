@@ -13,7 +13,7 @@ namespace Project
         public int SumOfCombinedValues { get; private set; }
         public int Bonus { get; private set; }
         public int TotalSum { get; private set; }
-        private bool allCombinationsUsed;
+        public bool AllCombinationsused { get; private set; }
         private int[] scores;
         private bool[] scoresAreUsed;
         private const int COMBINATIONS = 15;
@@ -23,7 +23,7 @@ namespace Project
         #region constructor
         public Scorecard()
         {
-            allCombinationsUsed = false;
+            AllCombinationsused = false;
             SumOfSingleValues = 0;
             Bonus = 0;
             TotalSum = 0;
@@ -57,11 +57,11 @@ namespace Project
 
             if (count == 0)
             {
-                allCombinationsUsed = true;
+                AllCombinationsused = true;
             }
             else
             {
-                allCombinationsUsed = false;
+                AllCombinationsused = false;
             }
         }
 
@@ -110,7 +110,6 @@ namespace Project
             scores[index] = value;
             scoresAreUsed[index] = true;
             updateValues();
-            setAllCombinationsUsed();
         }
 
 

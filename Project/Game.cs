@@ -61,6 +61,7 @@ namespace Project
             }
         }
 
+        
         private void StartNewTurn()
         {
             cup.ResetDies();
@@ -75,7 +76,6 @@ namespace Project
             RoundNumber++;
         }
 
-        //låser låste terninger op og evaluerer kombination
         private void endRound()
         {
             RoundIsInProgress = false;
@@ -90,17 +90,20 @@ namespace Project
         {
             if (value <= 5)
             {
-                playerOne.setScoreCardValue(value, ReturnSinglesValues(value));
+                playerOne.SetScoreCardValue(value, ReturnSinglesValues(value));
             }
             else
             {
-                playerOne.setScoreCardValue(value, ReturnCombinationValues(value - 6));
+                playerOne.SetScoreCardValue(value, ReturnCombinationValues(value - 6));
             }
         }
 
         private void checkScoreCardStatus()
         {
-            //check om pladen er fuld
+            if (playerOne.scoreCardisFull() == true)
+            {
+                GameHasEnded = true;
+            }
         }
 
         private void LockDies(bool[] values)

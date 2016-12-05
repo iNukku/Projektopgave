@@ -28,9 +28,21 @@ namespace Project
         #endregion
 
         #region Methods
-        public void setScoreCardValue(int indexvalue, int value)
+        public void SetScoreCardValue(int indexvalue, int value)
         {
             PlayerScoreCard.enterValue(indexvalue, value);
+        }
+
+        public bool scoreCardisFull()
+        {
+            if (PlayerScoreCard.AllCombinationsused == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         #endregion
 

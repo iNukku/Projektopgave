@@ -60,6 +60,10 @@ namespace Project
             {
                 if (theGame.RoundIsInProgress == true)
                 {
+                    if (theGame.RoundNumber == 1)
+                    {
+                        showDiceLockbuttons();
+                    }
                     displayDies(theGame.ReturnDiceValues());
                     roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
                     displaySinglevalueCombinations();
@@ -119,7 +123,6 @@ namespace Project
                     diceLocks[i].Visible = false;
                 }
             }
-
             return diceWasLocked;
         }
 
