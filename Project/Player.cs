@@ -71,7 +71,7 @@ namespace Project
 
         public int getScoreCardValue(int value)
         {
-            return 2;
+            return PlayerScoreCard.ReturnValue(value);
         }
         #endregion
 

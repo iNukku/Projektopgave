@@ -72,6 +72,7 @@ namespace Project
                 else
                 {
                     MessageBox.Show("choose a combination to procede");
+                    roll_button.Text = "Waiting for choice";
                 }
             }
             else

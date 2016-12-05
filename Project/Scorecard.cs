@@ -124,6 +124,10 @@ namespace Project
             }
         }
 
+        public int ReturnValue(int index)
+        {
+            return scores[index];
+        }
 
         #endregion
     }
