@@ -75,6 +75,8 @@
             this.roll_button = new System.Windows.Forms.Button();
             this.sum_one_label = new System.Windows.Forms.Label();
             this.bonus_label = new System.Windows.Forms.Label();
+            this.combined_sum_label = new System.Windows.Forms.Label();
+            this.total_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // dice_label_1
@@ -594,11 +596,33 @@
             this.bonus_label.TabIndex = 46;
             this.bonus_label.Text = "0";
             // 
+            // combined_sum_label
+            // 
+            this.combined_sum_label.AutoSize = true;
+            this.combined_sum_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.combined_sum_label.Location = new System.Drawing.Point(280, 533);
+            this.combined_sum_label.Name = "combined_sum_label";
+            this.combined_sum_label.Size = new System.Drawing.Size(15, 15);
+            this.combined_sum_label.TabIndex = 47;
+            this.combined_sum_label.Text = "0";
+            // 
+            // total_label
+            // 
+            this.total_label.AutoSize = true;
+            this.total_label.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.total_label.Location = new System.Drawing.Point(280, 559);
+            this.total_label.Name = "total_label";
+            this.total_label.Size = new System.Drawing.Size(15, 15);
+            this.total_label.TabIndex = 48;
+            this.total_label.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(425, 581);
+            this.Controls.Add(this.total_label);
+            this.Controls.Add(this.combined_sum_label);
             this.Controls.Add(this.bonus_label);
             this.Controls.Add(this.sum_one_label);
             this.Controls.Add(this.roll_button);
@@ -703,6 +727,8 @@
         private System.Windows.Forms.Button roll_button;
         private System.Windows.Forms.Label sum_one_label;
         private System.Windows.Forms.Label bonus_label;
+        private System.Windows.Forms.Label combined_sum_label;
+        private System.Windows.Forms.Label total_label;
     }
 }
 

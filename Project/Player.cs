@@ -30,10 +30,10 @@ namespace Project
         #region Methods
         public void SetScoreCardValue(int indexvalue, int value)
         {
-            PlayerScoreCard.enterValue(indexvalue, value);
+            PlayerScoreCard.EnterValue(indexvalue, value);
         }
 
-        public bool scoreCardisFull()
+        public bool ScoreCardisFull()
         {
             if (PlayerScoreCard.AllCombinationsused == true)
             {
@@ -43,6 +43,35 @@ namespace Project
             {
                 return false;
             }
+        }
+
+        public bool ScorecardContainsSingleValue(int value)
+        {
+            if (PlayerScoreCard.CombinationUsed(value) == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ScorecardContainsCombinedValue(int value)
+        {
+            if (PlayerScoreCard.CombinationUsed(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int getScoreCardValue(int value)
+        {
+            return 2;
         }
         #endregion
 

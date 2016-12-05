@@ -100,7 +100,7 @@ namespace Project
 
         private void checkScoreCardStatus()
         {
-            if (playerOne.scoreCardisFull() == true)
+            if (playerOne.ScoreCardisFull() == true)
             {
                 GameHasEnded = true;
             }
@@ -127,17 +127,30 @@ namespace Project
             return diceValues;
         }
 
-        //returnerer pointantal for en given mængde møngde af terninger af samme værdi - tjek om resultater er i scorecard if so: returner istedet scorecardvalue
+        //returnerer pointantal for en given mængde mængde af terninger af samme værdi - tjek om resultater er i scorecard if so: returner istedet scorecardvalue
         public int ReturnSinglesValues(int dicevalue)
         {
-            int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));       
-            return points;
+            if (playerOne.ScorecardContainsSingleValue(dicevalue))
+            {
+                return playerOne.getScoreCardValue(dicevalue);
+            }
+            else
+            {
+                int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));
+                return points;
+            }
         }
 
-        public int ReturnCombinationValues(int indexvalue) //lav check for at se om værdi er i Scorecard - if so: returner scorecardværdi
+        public int ReturnCombinationValues(int indexvalue) 
         {
-            int[] values = new int[]
+            if (playerOne.ScorecardContainsCombinedValue(indexvalue +6))
             {
+                return playerOne.getScoreCardValue(indexvalue +6);
+            }
+            else
+            {
+                int[] values = new int[]
+{
                 Rulebook.GetOnePairValue(diceValues),
                 Rulebook.GetTwoPairValue(diceValues),
                 Rulebook.GetThreeOfAKindValue(diceValues),
@@ -147,8 +160,10 @@ namespace Project
                 Rulebook.GetLargeStraightValue(diceValues),
                 Rulebook.GetChanceVValue(diceValues),
                 Rulebook.GetYatzeeValue(diceValues)
-            };
-            return values[indexvalue];
+};
+                return values[indexvalue];
+            }
+
         }
 
         #endregion

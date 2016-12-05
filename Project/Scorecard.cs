@@ -105,11 +105,23 @@ namespace Project
             setTotal();
         }
 
-        public void enterValue(int index, int value)
+        public void EnterValue(int index, int value)
         {
             scores[index] = value;
             scoresAreUsed[index] = true;
             updateValues();
+        }
+
+        public bool CombinationUsed(int value)
+        {
+            if (scoresAreUsed[value] == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
