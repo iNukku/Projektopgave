@@ -94,7 +94,7 @@ namespace Project
         {
             if (value <= 5)
             {
-                playerOne.SetScoreCardValue(value, ReturnSinglesValues(value +1));
+                playerOne.SetScoreCardValue(value, ReturnSinglesValues(value));
             }
             else
             {
