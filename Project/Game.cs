@@ -23,6 +23,7 @@ namespace Project
             cup = new CupOfDice(Rulebook.AMOUNT_OF_DICE, Rulebook.MAX_DICE_VALUE);
             playerOne = new Player();
             StartNewTurn();
+            RoundNumber = 0;
         }
         #endregion
 
@@ -46,12 +47,12 @@ namespace Project
             }
 
             //check if round needs to end
-            if (RoundNumber < Rulebook.MAX_ROUNDS && chosenCombination == -1)
+            if (RoundNumber <= Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 RoundIsInProgress = true;
                 StartNewRound(values);
             }
-            else if (RoundNumber == Rulebook.MAX_ROUNDS && chosenCombination == -1)
+            else if (RoundNumber > Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 endRound();
             }
@@ -64,9 +65,9 @@ namespace Project
         
         private void StartNewTurn()
         {
-            cup.ResetDies();
             RoundNumber = 1;
             RoundIsInProgress = true;
+            cup.Shuffle();
         }
 
         private void StartNewRound(bool[] values)
@@ -78,17 +79,20 @@ namespace Project
 
         private void endRound()
         {
+            cup.ResetDies();
             RoundIsInProgress = false;
         }
 
         private void endGame()
         {
             RoundIsInProgress = false;
+            GameHasEnded = true;
         }
 
+        //ser ud som om denne går galt
         private void setCombination(int value)
         {
-            if (value <= 5)
+            if (value <= 6)
             {
                 playerOne.SetScoreCardValue(value, ReturnSinglesValues(value));
             }
@@ -164,6 +168,11 @@ namespace Project
                 return values[indexvalue];
             }
 
+        }
+
+        public int[] ReturnSumsAndBonuses()
+        {
+            return playerOne.PlayerScoreCard.ReturnsumsValues();
         }
 
         #endregion

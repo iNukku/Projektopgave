@@ -17,6 +17,7 @@ namespace Project
         private RadioButton[] singleValueButtons;
         private RadioButton[] multiValueButtons;
         private CheckBox[] diceLocks;
+        private Label[] sumLabels;
         private Game theGame = new Game();
         private Image[] diceImages = new Image[] {
             Properties.Resources.dice_blank,
@@ -47,7 +48,12 @@ namespace Project
             diceLocks = new CheckBox[]{
                 checkbox_dice_1, checkBox_dice_2, checkBox_dice_3, checkBox_dice_4, checkBox_dice_5
             };
-            roll_button.Text = "Round 1";
+            sumLabels = new Label[]
+            {
+                sum_one_label, bonus_label, combined_sum_label, total_label
+            };
+
+            roll_button.Text = "start game";
         }
         #endregion
 
@@ -68,6 +74,7 @@ namespace Project
                     roll_button.Text = "Round: " + theGame.RoundNumber.ToString();
                     displaySinglevalueCombinations();
                     displayCombinedValues();
+                    displaySumValues(theGame.ReturnSumsAndBonuses());
                 }
                 else
                 {
@@ -106,6 +113,14 @@ namespace Project
             for (int i = 0; i < multiValueButtons.Length; i++)
             {
                 multiValueButtons[i].Text = theGame.ReturnCombinationValues(i).ToString();
+            }
+        }
+
+        private void displaySumValues(int[] values)
+        {
+            for (int i = 0; i < sumLabels.Length; i++)
+            {
+                sumLabels[i].Text = values[i].ToString();
             }
         }
 

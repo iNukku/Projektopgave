@@ -87,8 +87,7 @@ namespace Project
 
         private void setBonus()
         {
-            int sum = SumOfSingleValues;
-            Bonus = Rulebook.GetBonus(sum);
+            Bonus = Rulebook.GetBonus(SumOfSingleValues);
         }
 
         private void setTotal()
@@ -129,6 +128,19 @@ namespace Project
             return scores[index];
         }
 
+        public int[] ReturnsumsValues()
+        {
+            updateValues();
+            int[] values = new int[]
+            {
+                SumOfSingleValues,
+                Bonus,
+                SumOfCombinedValues,
+                TotalSum
+            };
+
+            return values;
+        }
         #endregion
     }
 }
