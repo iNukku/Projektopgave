@@ -47,12 +47,12 @@ namespace Project
             }
 
             //check if round needs to end
-            if (RoundNumber <= Rulebook.MAX_ROUNDS && chosenCombination == -1)
+            if (RoundNumber < Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 RoundIsInProgress = true;
                 StartNewRound(values);
             }
-            else if (RoundNumber > Rulebook.MAX_ROUNDS && chosenCombination == -1)
+            else if (RoundNumber == Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 endRound();
             }

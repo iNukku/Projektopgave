@@ -54,6 +54,7 @@ namespace Project
             };
 
             roll_button.Text = "start game";
+            displayBlankDies();
         }
         #endregion
 
@@ -84,6 +85,7 @@ namespace Project
             }
             else
             {
+                displayBlankDies();
                 MessageBox.Show("Game has ended - thank you for playing :-)");
             }
 
@@ -94,6 +96,14 @@ namespace Project
             for (int i = 0; i < diceLabels.Length; i++)
             {
                 diceLabels[i].Image = diceImages[diceValues[i]];
+            }
+        }
+
+        private void displayBlankDies()
+        {
+            foreach (Label label in diceLabels)
+            {
+                label.Image = diceImages[0];
             }
         }
 
