@@ -43,9 +43,10 @@ namespace Project
         public int GetOccurencesOfDiceValue(int value)
         {
             int amount = 0;
+
             foreach (Dice dice in DiceArray)
             {
-                if (dice.DiceValue == value)
+                if (dice.DiceValue == value + 1)
                 {
                     amount++;
                 }

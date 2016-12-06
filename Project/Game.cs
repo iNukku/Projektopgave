@@ -92,9 +92,9 @@ namespace Project
         //ser ud som om denne går galt
         private void setCombination(int value)
         {
-            if (value <= 6)
+            if (value <= 5)
             {
-                playerOne.SetScoreCardValue(value, ReturnSinglesValues(value));
+                playerOne.SetScoreCardValue(value, ReturnSinglesValues(value +1));
             }
             else
             {

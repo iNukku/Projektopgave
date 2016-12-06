@@ -53,7 +53,7 @@ namespace Project
                 sum_one_label, bonus_label, combined_sum_label, total_label
             };
 
-            roll_button.Text = "start game";
+            roll_button.Text = "Start game";
             displayBlankDies();
         }
         #endregion
@@ -114,7 +114,7 @@ namespace Project
             {
                 if (singleValueButtons[i].Enabled == true)
                 {
-                    singleValueButtons[i].Text = theGame.ReturnSinglesValues(i + 1).ToString();
+                    singleValueButtons[i].Text = theGame.ReturnSinglesValues(i).ToString();
                 }
             }
         }

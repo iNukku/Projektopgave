@@ -21,7 +21,7 @@ namespace Project
         #region methods
         public static int GetSinglesValue(int value, int occurance)
         {
-            int totalValue = value * occurance;
+            int totalValue = (value + 1) * occurance;
             return totalValue;
         }
 
