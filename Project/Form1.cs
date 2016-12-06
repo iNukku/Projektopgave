@@ -86,6 +86,7 @@ namespace Project
             else
             {
                 displayBlankDies();
+                displaySumValues(theGame.ReturnSumsAndBonuses());
                 MessageBox.Show("Game has ended - thank you for playing :-)");
             }
 
