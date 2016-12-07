@@ -87,6 +87,8 @@ namespace Project
             {
                 displayBlankDies();
                 displaySumValues(theGame.ReturnSumsAndBonuses());
+                roll_button.Text = "Game ended";
+                roll_button.Enabled = false;
                 MessageBox.Show("Game has ended - thank you for playing :-)");
             }
 

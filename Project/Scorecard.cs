@@ -9,14 +9,14 @@ namespace Project
     public class Scorecard
     {
         #region fields and properties
-        public int SumOfSingleValues { get; private set; }
-        public int SumOfCombinedValues { get; private set; }
-        public int Bonus { get; private set; }
-        public int TotalSum { get; private set; }
         public bool AllCombinationsused { get; private set; }
         private int[] scores;
         private bool[] scoresAreUsed;
         private const int COMBINATIONS = 15;
+        private int sumOfSingleValues;
+        private int sumOfCombinedValues;
+        private int bonus;
+        private int totalSum;
 
         #endregion
 
@@ -24,9 +24,9 @@ namespace Project
         public Scorecard()
         {
             AllCombinationsused = false;
-            SumOfSingleValues = 0;
-            Bonus = 0;
-            TotalSum = 0;
+            sumOfSingleValues = 0;
+            bonus = 0;
+            totalSum = 0;
             scores = new int[COMBINATIONS];
             scoresAreUsed = new bool[COMBINATIONS];
 
@@ -67,32 +67,32 @@ namespace Project
 
         private void setSumOfSingleValues()
         {
-            SumOfSingleValues = 0;
+            sumOfSingleValues = 0;
 
             for (int i = 0; i < 6; i++)
             {
-                SumOfSingleValues += scores[i];
+                sumOfSingleValues += scores[i];
             }
         }
 
         private void setSumOfCombinedValues()
         {
-            SumOfCombinedValues = 0;
+            sumOfCombinedValues = 0;
 
             for (int i = 6; i < scores.Length; i++)
             {
-                SumOfCombinedValues += scores[i];
+                sumOfCombinedValues += scores[i];
             }
         }
 
         private void setBonus()
         {
-            Bonus = Rulebook.GetBonus(SumOfSingleValues);
+            bonus = Rulebook.GetBonus(sumOfSingleValues);
         }
 
         private void setTotal()
         {
-            TotalSum = SumOfSingleValues + SumOfCombinedValues + Bonus;
+            totalSum = sumOfSingleValues + sumOfCombinedValues + bonus;
         }
 
         private void updateValues()
@@ -133,10 +133,10 @@ namespace Project
             updateValues();
             int[] values = new int[]
             {
-                SumOfSingleValues,
-                Bonus,
-                SumOfCombinedValues,
-                TotalSum
+                sumOfSingleValues,
+                bonus,
+                sumOfCombinedValues,
+                totalSum
             };
 
             return values;
