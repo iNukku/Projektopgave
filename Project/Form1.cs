@@ -19,35 +19,42 @@ namespace Project
         private CheckBox[] diceLocks;
         private Label[] sumLabels;
         private Game theGame = new Game();
-        private Image[] diceImages = new Image[] {
-            Properties.Resources.dice_blank,
-            Properties.Resources.dice_1,
-            Properties.Resources.dice_2,
-            Properties.Resources.dice_3,
-            Properties.Resources.dice_4,
-            Properties.Resources.dice_5,
-            Properties.Resources.dice_6 };
+        private Image[] diceImages; 
         #endregion
 
         #region constructor
         public Form1()
         {
             InitializeComponent();
+
+            diceImages = new Image[] {
+                Properties.Resources.dice_blank,
+                Properties.Resources.dice_1,
+                Properties.Resources.dice_2,
+                Properties.Resources.dice_3,
+                Properties.Resources.dice_4,
+                Properties.Resources.dice_5,
+                Properties.Resources.dice_6 };
+
             diceLabels = new Label[]
             {
                 dice_label_1, dice_label_2, dice_label_3, dice_label_4, dice_label_5
             };
+
             singleValueButtons = new RadioButton[]
             {
                 ones_button, twos_button, threes_button, fours_button, fives_button, sixes_button
             };
+
             multiValueButtons = new RadioButton[]
             {
                 onepair_button, twopairs_button, three_same_button, four_same_button, full_house_button, small_str_button, large_str_button, chance_button, yatzy_button
             };
+
             diceLocks = new CheckBox[]{
                 checkbox_dice_1, checkBox_dice_2, checkBox_dice_3, checkBox_dice_4, checkBox_dice_5
             };
+
             sumLabels = new Label[]
             {
                 sum_one_label, bonus_label, combined_sum_label, total_label
