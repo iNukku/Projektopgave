@@ -44,6 +44,7 @@ namespace Project
         #endregion
 
         #region methods
+        //Evaluates if every score on scorecard is used and sets the AllCombinationsused property accordingly
         private void setAllCombinationsUsed()
         {
             int count = 0;
@@ -95,6 +96,7 @@ namespace Project
             totalSum = sumOfSingleValues + sumOfCombinedValues + bonus;
         }
 
+        //Updates every value influenced by the user choice of combination
         private void updateValues()
         {
             setSumOfSingleValues();
@@ -128,6 +130,7 @@ namespace Project
             return scores[index];
         }
 
+        //Returns the values of single values entries on scorecard, bonus on scorecard, combinedvalues on scorecard and of the total on scorecard as an array
         public int[] ReturnsumsValues()
         {
             updateValues();

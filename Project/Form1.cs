@@ -101,6 +101,7 @@ namespace Project
 
         }
 
+        //Displays images representing the values of every dice
         private void displayDies(int[] diceValues)
         {
             for (int i = 0; i < diceLabels.Length; i++)
@@ -109,6 +110,7 @@ namespace Project
             }
         }
 
+        //Displays a dice with no dots
         private void displayBlankDies()
         {
             foreach (Label label in diceLabels)
@@ -117,6 +119,7 @@ namespace Project
             }
         }
 
+        //Displays the combinations from adding dies of the same value
         private void displaySinglevalueCombinations()
         {
             for (int i = 0; i < singleValueButtons.Length; i++)
@@ -128,6 +131,7 @@ namespace Project
             }
         }
 
+        //displays the value for the combinations requiring more than a single dingle dice value e.g. full house, straight etc.
         private void displayCombinedValues()
         {
             for (int i = 0; i < multiValueButtons.Length; i++)
@@ -144,6 +148,7 @@ namespace Project
             }
         }
 
+        //returns an array with information on which dies were locked by the user - and if dice was locked sets its Visible property to false
         private bool[] userLockedDies()
         {
             bool[] diceWasLocked = new bool[diceLocks.Length];
@@ -162,6 +167,7 @@ namespace Project
             return diceWasLocked;
         }
 
+        //resets all the checkboxes in dicelock array to be visible and unchecked
         private void showDiceLockbuttons()
         {
             foreach (CheckBox box in diceLocks)

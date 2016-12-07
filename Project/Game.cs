@@ -88,7 +88,7 @@ namespace Project
             RoundIsInProgress = false;
             GameHasEnded = true;
         }
-
+        
         private void setCombination(int value)
         {
             if (value <= 5)
