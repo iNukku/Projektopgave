@@ -62,7 +62,61 @@ namespace Project
             }
         }
 
-        
+        public int[] ReturnDiceValues()
+        {
+            for (int i = 0; i < diceValues.Length; i++)
+            {
+                diceValues[i] = cup.DiceArray[i].DiceValue;
+            }
+            return diceValues;
+        }
+
+        //checks if scorecard already contains a value for the combinatioln of singlevaluedies - if so returns value from scorecard. Otherwise returns value by asking rulebook
+        public int ReturnSinglesValues(int dicevalue)
+        {
+            if (playerOne.ScorecardContainsSingleValue(dicevalue))
+            {
+                return playerOne.getScoreCardValue(dicevalue);
+            }
+            else
+            {
+                int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));
+                return points;
+            }
+        }
+
+        //checks if scorecard already contains combination - in this case it returns scorecardvalue. Otherwise uses rulebook to determnine value for the combination
+        public int ReturnCombinationValues(int indexvalue)
+        {
+            if (playerOne.ScorecardContainsCombinedValue(indexvalue + 6))
+            {
+                return playerOne.getScoreCardValue(indexvalue + 6);
+            }
+            else
+            {
+                int[] values = new int[]
+{
+                Rulebook.GetOnePairValue(diceValues),
+                Rulebook.GetTwoPairValue(diceValues),
+                Rulebook.GetThreeOfAKindValue(diceValues),
+                Rulebook.GetFourOfAKindValue(diceValues),
+                Rulebook.GetFullHouseValue(diceValues),
+                Rulebook.GetSmallStraightValue(diceValues),
+                Rulebook.GetLargeStraightValue(diceValues),
+                Rulebook.GetChanceVValue(diceValues),
+                Rulebook.GetYatzeeValue(diceValues)
+};
+                return values[indexvalue];
+            }
+        }
+
+        //Returns the sum of singlevalue combinations, the bonus and also the sum of multivalue combinations and the total score
+        public int[] ReturnSumsAndBonuses()
+        {
+            return playerOne.PlayerScoreCard.ReturnsumsValues();
+        }
+
+
         private void StartNewTurn()
         {
             RoundNumber = 1;
@@ -119,63 +173,6 @@ namespace Project
                 }
             }
         }
-
-        public int[] ReturnDiceValues()
-        {
-            for (int i = 0; i < diceValues.Length; i++)
-            {
-                diceValues[i] = cup.DiceArray[i].DiceValue;
-            }
-            return diceValues;
-        }
-
-        //checks if scorecard already contains a value for the combinatioln of singlevaluedies - if so returns value from scorecard. Otherwise returns value by asking rulebook
-        public int ReturnSinglesValues(int dicevalue)
-        {
-            if (playerOne.ScorecardContainsSingleValue(dicevalue))
-            {
-                return playerOne.getScoreCardValue(dicevalue);
-            }
-            else
-            {
-                int points = Rulebook.GetSinglesValue(dicevalue, cup.GetOccurencesOfDiceValue(dicevalue));
-                return points;
-            }
-        }
-
-        //checks if scorecard already contains combination - in this case it returns scorecardvalue. Otherwise uses rulebook to determnine value for the combination
-        public int ReturnCombinationValues(int indexvalue) 
-        {
-            if (playerOne.ScorecardContainsCombinedValue(indexvalue +6))
-            {
-                return playerOne.getScoreCardValue(indexvalue +6);
-            }
-            else
-            {
-                int[] values = new int[]
-{
-                Rulebook.GetOnePairValue(diceValues),
-                Rulebook.GetTwoPairValue(diceValues),
-                Rulebook.GetThreeOfAKindValue(diceValues),
-                Rulebook.GetFourOfAKindValue(diceValues),
-                Rulebook.GetFullHouseValue(diceValues),
-                Rulebook.GetSmallStraightValue(diceValues),
-                Rulebook.GetLargeStraightValue(diceValues),
-                Rulebook.GetChanceVValue(diceValues),
-                Rulebook.GetYatzeeValue(diceValues)
-};
-                return values[indexvalue];
-            }
-
-        }
-
-        //Returns the sum of singlevalue combinations, the bonus and also the sum of multivalue combinations and the total score
-        public int[] ReturnSumsAndBonuses()
-        {
-            return playerOne.PlayerScoreCard.ReturnsumsValues();
-        }
-
         #endregion
-
     }
 }

@@ -65,7 +65,7 @@ namespace Project
         }
         #endregion
 
-        #region methods and events
+        #region methods
         private void roll_button_Click(object sender, EventArgs e)
         {
             theGame.EvaluateRoll(userLockedDies(), chooseCombination());

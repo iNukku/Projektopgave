@@ -44,6 +44,44 @@ namespace Project
         #endregion
 
         #region methods
+        public void EnterValue(int index, int value)
+        {
+            scores[index] = value;
+            scoresAreUsed[index] = true;
+            updateValues();
+        }
+
+        public bool CombinationUsed(int value)
+        {
+            if (scoresAreUsed[value] == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public int ReturnValue(int index)
+        {
+            return scores[index];
+        }
+
+        //Returns the values of single values entries on scorecard, bonus on scorecard, combinedvalues on scorecard and of the total on scorecard as an array
+        public int[] ReturnsumsValues()
+        {
+            updateValues();
+            int[] values = new int[]
+            {
+                sumOfSingleValues,
+                bonus,
+                sumOfCombinedValues,
+                totalSum
+            };
+
+            return values;
+        }
         //Evaluates if every score on scorecard is used and sets the AllCombinationsused property accordingly
         private void setAllCombinationsUsed()
         {
@@ -104,45 +142,6 @@ namespace Project
             setAllCombinationsUsed();
             setBonus();
             setTotal();
-        }
-
-        public void EnterValue(int index, int value)
-        {
-            scores[index] = value;
-            scoresAreUsed[index] = true;
-            updateValues();
-        }
-
-        public bool CombinationUsed(int value)
-        {
-            if (scoresAreUsed[value] == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        public int ReturnValue(int index)
-        {
-            return scores[index];
-        }
-
-        //Returns the values of single values entries on scorecard, bonus on scorecard, combinedvalues on scorecard and of the total on scorecard as an array
-        public int[] ReturnsumsValues()
-        {
-            updateValues();
-            int[] values = new int[]
-            {
-                sumOfSingleValues,
-                bonus,
-                sumOfCombinedValues,
-                totalSum
-            };
-
-            return values;
         }
         #endregion
     }
