@@ -11,8 +11,8 @@ namespace Project
         #region fields and properties
         private CupOfDice cup;
         private Player playerOne;
-        public int RoundNumber { get; private set; }
         private int[] diceValues = new int[Rulebook.AMOUNT_OF_DICE];
+        public int RoundNumber { get; private set; }
         public bool RoundIsInProgress { get; private set; }
         public bool GameHasEnded { get; private set; }
         #endregion
@@ -30,7 +30,7 @@ namespace Project
         #region methods
         public void EvaluateRoll(bool[] values, int chosenCombination)
         {
-            //Check if the combination chosen by the user causes the game to end - else end round
+            //Checks if the combination chosen by the user causes the game to end - else end round
             if (chosenCombination != -1)
             {
                 setCombination(chosenCombination);
@@ -46,7 +46,7 @@ namespace Project
                 }
             }
 
-            //check if round needs to end
+            //checks if round needs to end
             if (RoundNumber < Rulebook.MAX_ROUNDS && chosenCombination == -1)
             {
                 RoundIsInProgress = true;
@@ -89,7 +89,6 @@ namespace Project
             GameHasEnded = true;
         }
 
-        //ser ud som om denne går galt
         private void setCombination(int value)
         {
             if (value <= 5)
@@ -119,7 +118,6 @@ namespace Project
                     cup.DiceArray[i].IsLocked = true;
                 }
             }
-            //cup.DiceArray[value].IsLocked = true;
         }
 
         public int[] ReturnDiceValues()
@@ -131,7 +129,7 @@ namespace Project
             return diceValues;
         }
 
-        //returnerer pointantal for en given mængde mængde af terninger af samme værdi - tjek om resultater er i scorecard if so: returner istedet scorecardvalue
+        //checks if scorecard already contains a value for the combinatioln of singlevaluedies - if so returns value from scorecard. Otherwise returns value by asking rulebook
         public int ReturnSinglesValues(int dicevalue)
         {
             if (playerOne.ScorecardContainsSingleValue(dicevalue))
@@ -145,6 +143,7 @@ namespace Project
             }
         }
 
+        //checks if scorecard already contains combination - in this case it returns scorecardvalue. Otherwise uses rulebook to determnine value for the combination
         public int ReturnCombinationValues(int indexvalue) 
         {
             if (playerOne.ScorecardContainsCombinedValue(indexvalue +6))
@@ -170,6 +169,7 @@ namespace Project
 
         }
 
+        //Returns the sum of singlevalue combinations, the bonus and also the sum of multivalue combinations and the total score
         public int[] ReturnSumsAndBonuses()
         {
             return playerOne.PlayerScoreCard.ReturnsumsValues();

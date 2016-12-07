@@ -161,6 +161,7 @@ namespace Project
                 box.Checked = false;
             }
         }
+
         //Joins the two radiobutton arrays into one and evaluates if a button has been chosen - returns the index of the chosen button or -1 if no button was chosen
         private int chooseCombination()
         {

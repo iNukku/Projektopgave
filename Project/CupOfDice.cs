@@ -40,6 +40,7 @@ namespace Project
             }
         }
 
+        //Checks how many times a given dicevalue is represented in the cup
         public int GetOccurencesOfDiceValue(int value)
         {
             int amount = 0;
