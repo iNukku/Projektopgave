@@ -51,6 +51,7 @@ namespace Project
             updateValues();
         }
 
+        //Checks if a combination is already entered into the scorecard
         public bool CombinationUsed(int value)
         {
             if (scoresAreUsed[value] == true)

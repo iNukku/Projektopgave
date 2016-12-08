@@ -15,7 +15,7 @@ namespace Project
         public const int MAX_ROUNDS = 3;
         private const int MIN_SINGLEVALUES_FOR_BONUS = 63;
         private const int BONUS = 50;
-        private const int YATZEE = 50;
+        private const int YATZY = 50;
         #endregion
 
         #region methods
@@ -185,7 +185,7 @@ namespace Project
 
             if (values[0] == values[values.Length -1])
             {
-                return 50;
+                return YATZY;
             }
             else
             {
